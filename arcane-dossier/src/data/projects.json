@@ -1,50 +1,640 @@
 [
   {
+    "id": "pbi-monitor",
+    "slug": "pbi-monitor",
+    "title": "PBI Monitor",
+    "subtitle": "Desktop automation app for daily Power BI dashboard refresh control",
+    "category": [
+      "product",
+      "desktop",
+      "automation",
+      "data"
+    ],
+    "status": "active",
+    "year": 2026,
+    "shortDescription": "A working desktop application for automating the daily control of Power BI dashboard refresh status, built as an internal productivity tool for dashboard monitoring workflows.",
+    "problem": "Daily dashboard refresh checks are repetitive, easy to miss and inefficient when they depend on manual inspection. A business analytics team needs a reliable way to track whether important dashboards were updated and to document the check without turning it into a daily manual routine.",
+    "solution": "Build a focused desktop monitoring tool that centralizes dashboard refresh control, gives the user a clear daily check workflow and can evolve toward shared synchronization, notifications and report/export features.",
+    "myRole": [
+      "Identified a real internal workflow problem around daily Power BI dashboard update checks.",
+      "Designed the tool as a practical desktop product rather than a one-off script.",
+      "Built the monitoring workflow around usability, maintainability and future synchronization needs.",
+      "Prepared documentation and positioned the app for use in a business analytics / technical development context."
+    ],
+    "techStack": [
+      "Desktop App",
+      "Power BI Monitoring",
+      "Workflow Automation",
+      "Data Tracking",
+      "Internal Tooling",
+      "Product Design",
+      "Documentation"
+    ],
+    "architecture": [
+      {
+        "title": "Desktop application layer",
+        "items": [
+          "Local user-facing monitoring interface",
+          "Focused workflow for daily dashboard status checks",
+          "Designed for business users rather than developers only"
+        ]
+      },
+      {
+        "title": "Monitoring workflow",
+        "items": [
+          "Dashboard list management",
+          "Refresh/update status review",
+          "Daily verification process",
+          "Clear separation between routine checks and configuration"
+        ]
+      },
+      {
+        "title": "Product evolution path",
+        "items": [
+          "Shared data synchronization through a server folder or database",
+          "Notifications when another user changes dashboard data",
+          "Export/report layer for audit-friendly summaries"
+        ]
+      },
+      {
+        "title": "Documentation layer",
+        "items": [
+          "User guide for handoff",
+          "Screenshots and workflow explanation",
+          "Clear framing for Jira/task closure and team adoption"
+        ]
+      }
+    ],
+    "features": [
+      "Dashboard refresh monitoring workflow",
+      "Desktop-first user experience",
+      "Daily operational check support",
+      "Dashboard list/status organization",
+      "Documentation-ready workflow",
+      "Future-ready synchronization concept",
+      "Potential notification and export/report extensions"
+    ],
+    "result": [
+      "Created a practical working product from a real internal analytics process.",
+      "Moved the task from manual daily checking toward repeatable automation.",
+      "Shows ability to build useful business tooling, not only portfolio demos."
+    ],
+    "whatILearned": [
+      "Small internal tools still need product thinking: users, workflow, state, documentation and adoption.",
+      "Automation is valuable when it removes repeated attention cost from business teams.",
+      "The next architectural step should be shared synchronization and controlled multi-user updates."
+    ],
+    "whyItMatters": "PBI Monitor is the strongest product-style case in the portfolio because it solves a real workflow problem: daily monitoring of dashboard updates for a business analytics environment.",
+    "screenshots": [
+      {
+        "src": "/screenshots/pbi-monitor-placeholder.png",
+        "alt": "PBI Monitor desktop application placeholder",
+        "caption": "Placeholder for the desktop application screen and dashboard refresh monitoring workflow."
+      }
+    ],
+    "links": [
+      {
+        "label": "Internal desktop app / private demo",
+        "url": "#",
+        "type": "private"
+      }
+    ],
+    "proofTags": [
+      "Desktop product",
+      "Internal automation",
+      "Power BI",
+      "Business analytics",
+      "Workflow design",
+      "Documentation"
+    ]
+  },
+  {
     "id": "ai-telegram-assistant",
     "slug": "ai-telegram-assistant",
     "title": "AI Telegram Assistant",
-    "subtitle": "RAG assistant for company knowledge",
-    "category": ["ai", "backend"],
+    "subtitle": "Commandless RAG assistant for company knowledge",
+    "category": [
+      "ai",
+      "backend"
+    ],
     "status": "in-progress",
     "year": 2026,
-    "shortDescription": "Commandless Telegram assistant that answers only from a controlled knowledge base using local LLM and retrieval.",
-    "techStack": ["Python", "aiogram", "Ollama", "ChromaDB", "PostgreSQL", "RAG"],
-    "proofTags": ["Local LLM", "Grounded answers", "Knowledge base", "Backend architecture"]
+    "shortDescription": "A Telegram assistant that works without command menus and answers only from a controlled company knowledge base using retrieval and local LLM infrastructure.",
+    "problem": "Internal company knowledge is usually scattered across documents, chats and informal explanations. A normal Telegram bot with command buttons feels limited, while a generic LLM can hallucinate or answer outside the approved knowledge base.",
+    "solution": "Design a RAG-first Telegram assistant that receives natural-language questions, retrieves relevant chunks from a curated knowledge base, sends only grounded context to the model and refuses to invent missing information.",
+    "myRole": [
+      "Designed the assistant concept and commandless user experience.",
+      "Planned the RAG pipeline, local LLM flow and knowledge-base boundaries.",
+      "Worked on backend architecture around Python, aiogram, ChromaDB, PostgreSQL and Ollama."
+    ],
+    "techStack": [
+      "Python",
+      "aiogram",
+      "Ollama",
+      "ChromaDB",
+      "PostgreSQL",
+      "RAG",
+      "Local LLM"
+    ],
+    "architecture": [
+      {
+        "title": "Telegram interface",
+        "items": [
+          "Natural-language message input",
+          "No command/menu dependency",
+          "Conversation-like assistant flow"
+        ]
+      },
+      {
+        "title": "Retrieval layer",
+        "items": [
+          "Knowledge-base chunking",
+          "Metadata-aware retrieval",
+          "Context preparation before generation"
+        ]
+      },
+      {
+        "title": "Local AI layer",
+        "items": [
+          "Ollama model adapter",
+          "Grounded prompt construction",
+          "Strict answer boundaries"
+        ]
+      },
+      {
+        "title": "Storage layer",
+        "items": [
+          "PostgreSQL for structured data",
+          "ChromaDB for vector storage",
+          "Separation between chat state and knowledge content"
+        ]
+      }
+    ],
+    "features": [
+      "Natural-language Telegram interaction",
+      "Answers grounded in company knowledge base",
+      "Local LLM support through Ollama",
+      "Vector retrieval with ChromaDB",
+      "PostgreSQL-backed backend structure",
+      "Refusal behavior when knowledge is missing"
+    ],
+    "result": [
+      "Demonstrates practical LLM integration beyond a simple chatbot wrapper.",
+      "Shows understanding of grounded answers, retrieval and local AI workflows.",
+      "Useful as a real internal knowledge assistant prototype."
+    ],
+    "whatILearned": [
+      "RAG systems need strong boundaries, not just embeddings.",
+      "A good assistant UX can be commandless while still controlled.",
+      "Local LLM demos are valuable when privacy or offline capability matters."
+    ],
+    "whyItMatters": "This project proves AI/LLM engineering skills: provider integration, retrieval, prompt grounding, backend design and honest answer behavior.",
+    "screenshots": [
+      {
+        "src": "/screenshots/ai-telegram-assistant-placeholder.png",
+        "alt": "AI Telegram Assistant interface placeholder",
+        "caption": "Placeholder for Telegram assistant flow and RAG pipeline screenshot."
+      }
+    ],
+    "links": [
+      {
+        "label": "Private / internal demo",
+        "url": "#",
+        "type": "private"
+      }
+    ],
+    "proofTags": [
+      "Local LLM",
+      "Grounded answers",
+      "Knowledge base",
+      "Backend architecture",
+      "RAG"
+    ]
   },
   {
     "id": "fincat",
     "slug": "fincat",
     "title": "FinCat",
-    "subtitle": "Financial organizations catalog",
-    "category": ["backend", "frontend", "finance"],
+    "subtitle": "Financial organizations catalog with roles and API architecture",
+    "category": [
+      "backend",
+      "frontend",
+      "finance"
+    ],
     "status": "completed",
     "year": 2025,
-    "shortDescription": "Full-stack catalog with DRF backend, Nuxt 3 frontend, JWT auth, roles, CRUD and Dockerized PostgreSQL setup.",
-    "techStack": ["Django REST Framework", "Nuxt 3", "PostgreSQL", "Docker", "JWT"],
-    "proofTags": ["API design", "Auth", "Roles", "CRUD", "Docker"]
+    "shortDescription": "A full-stack catalog of financial organizations with DRF backend, Nuxt 3 frontend, JWT authentication, admin/user roles, CRUD operations and Dockerized PostgreSQL setup.",
+    "problem": "The task required a small internal service where users can view financial organizations and admins can manage them. Backend structure, readable code, auth, roles and API design were more important than visual effects.",
+    "solution": "Build a clean full-stack application with Django REST Framework endpoints, JWT authentication, role-based permissions, Nuxt 3 UI, organization cards and Docker Compose for backend, frontend and database.",
+    "myRole": [
+      "Implemented the backend data model and CRUD API.",
+      "Designed role separation for admin and user flows.",
+      "Built the Nuxt frontend for browsing organization cards and details.",
+      "Prepared Docker setup and project documentation."
+    ],
+    "techStack": [
+      "Django",
+      "Django REST Framework",
+      "Nuxt 3",
+      "Vue 3",
+      "PostgreSQL",
+      "Docker",
+      "JWT"
+    ],
+    "architecture": [
+      {
+        "title": "Backend",
+        "items": [
+          "Django REST Framework API",
+          "Financial organization model",
+          "License data support",
+          "JWT-based auth"
+        ]
+      },
+      {
+        "title": "Permissions",
+        "items": [
+          "Admin can create, update and delete",
+          "User can view only",
+          "Protected API requests with tokens"
+        ]
+      },
+      {
+        "title": "Frontend",
+        "items": [
+          "Nuxt 3 pages",
+          "Organization cards",
+          "Details page",
+          "Admin-oriented forms"
+        ]
+      },
+      {
+        "title": "Infrastructure",
+        "items": [
+          "Dockerfile",
+          "docker-compose.yml",
+          "PostgreSQL service",
+          "Seed data for testing"
+        ]
+      }
+    ],
+    "features": [
+      "Financial organization list",
+      "Organization detail page",
+      "BIN, name, logo and licenses display",
+      "JWT login and registration",
+      "Admin/user role separation",
+      "CRUD for financial organizations",
+      "Dockerized frontend, backend and database"
+    ],
+    "result": [
+      "Completed the core requirements of a realistic full-stack technical assignment.",
+      "Demonstrated backend-first thinking with usable frontend delivery.",
+      "Created a case that shows API design, auth, roles and deployment readiness."
+    ],
+    "whatILearned": [
+      "Backend architecture should stay clear before UI polish.",
+      "Role-based permissions are a core product requirement, not a bonus.",
+      "Docker makes even small test projects easier to evaluate and reproduce."
+    ],
+    "whyItMatters": "FinCat is the strongest proof of practical full-stack/backend competence: CRUD, auth, roles, API structure, Docker and finance-domain data modeling.",
+    "screenshots": [
+      {
+        "src": "/screenshots/fincat-placeholder.png",
+        "alt": "FinCat organization cards placeholder",
+        "caption": "Placeholder for organization catalog and admin flow screenshots."
+      }
+    ],
+    "links": [
+      {
+        "label": "GitHub repository placeholder",
+        "url": "#",
+        "type": "github"
+      }
+    ],
+    "proofTags": [
+      "API design",
+      "Auth",
+      "Roles",
+      "CRUD",
+      "Docker",
+      "Finance domain"
+    ]
+  },
+  {
+    "id": "abafar-convertor",
+    "slug": "abafar-convertor",
+    "title": "AbafarConvertor",
+    "subtitle": "YouTube-to-MP3 converter with Node backend and Expo/React Native client",
+    "category": [
+      "backend",
+      "frontend",
+      "product",
+      "automation"
+    ],
+    "status": "prototype",
+    "year": 2025,
+    "shortDescription": "A utility app that converts YouTube links into MP3 files using a Node/Express backend and a mobile/web client built with Expo and React Native.",
+    "problem": "A simple media utility still needs a clear client/server split: the user enters a link in the app, the backend retrieves video metadata, converts audio to MP3 and returns the file safely to the client.",
+    "solution": "Create a backend service with endpoints for video info and MP3 download, connect it to an Expo/React Native client and use yt-dlp/FFmpeg-style tooling for conversion workflow orchestration.",
+    "myRole": [
+      "Built the app concept around a direct link-to-MP3 conversion workflow.",
+      "Implemented a Node/Express backend for metadata retrieval and download handling.",
+      "Structured the client app with Expo/React Native dependencies and API communication.",
+      "Handled file creation, response download and cleanup flow on the backend side."
+    ],
+    "techStack": [
+      "Node.js",
+      "Express",
+      "CORS",
+      "yt-dlp",
+      "FFmpeg",
+      "Expo",
+      "React Native",
+      "TypeScript",
+      "Axios"
+    ],
+    "architecture": [
+      {
+        "title": "Client application",
+        "items": [
+          "Expo application structure",
+          "React Native / React Native Web support",
+          "Axios-based API communication",
+          "Mobile-first utility interface"
+        ]
+      },
+      {
+        "title": "Backend API",
+        "items": [
+          "Express server",
+          "GET /info for video title retrieval",
+          "POST /download for MP3 conversion and download",
+          "CORS-enabled client/server communication"
+        ]
+      },
+      {
+        "title": "Conversion workflow",
+        "items": [
+          "yt-dlp command orchestration",
+          "Audio extraction to MP3",
+          "Filename sanitization",
+          "Temporary file cleanup after sending"
+        ]
+      },
+      {
+        "title": "Product direction",
+        "items": [
+          "Simple utility-first UX",
+          "Clear separation between UI and conversion backend",
+          "Good base for queueing, progress states and desktop packaging"
+        ]
+      }
+    ],
+    "features": [
+      "YouTube link input flow",
+      "Video title retrieval",
+      "MP3 download endpoint",
+      "Backend file generation and cleanup",
+      "Expo/React Native client foundation",
+      "CORS-enabled local API communication"
+    ],
+    "result": [
+      "Demonstrates practical client/server integration for a real utility workflow.",
+      "Shows backend process orchestration beyond standard CRUD.",
+      "Useful as a small product case that can be improved with security, queues and packaging."
+    ],
+    "whatILearned": [
+      "Utility apps need strong backend boundaries because file processing can become risky and resource-heavy.",
+      "Conversion workflows should eventually add validation, progress states, queueing and safer command execution.",
+      "A small app can still show API design, mobile client structure and process automation."
+    ],
+    "whyItMatters": "AbafarConvertor adds a practical utility/product case to the portfolio: Node backend, media processing workflow, Expo client and API integration.",
+    "screenshots": [
+      {
+        "src": "/screenshots/abafar-convertor-placeholder.png",
+        "alt": "AbafarConvertor app placeholder",
+        "caption": "Placeholder for the link input screen and backend conversion workflow diagram."
+      }
+    ],
+    "links": [
+      {
+        "label": "GitHub repository",
+        "url": "https://github.com/Abafarius/AbafarConvertor",
+        "type": "github"
+      }
+    ],
+    "proofTags": [
+      "Node backend",
+      "Express API",
+      "Expo",
+      "React Native",
+      "Media conversion",
+      "Utility product"
+    ]
   },
   {
     "id": "learning-clicker",
     "slug": "learning-clicker",
     "title": "Век живи — век учись",
-    "subtitle": "Educational progression clicker",
-    "category": ["frontend", "creative-coding"],
+    "subtitle": "Educational progression clicker and frontend/game design case",
+    "category": [
+      "frontend",
+      "creative-coding"
+    ],
     "status": "completed",
     "year": 2025,
-    "shortDescription": "React-based educational clicker with progression, upgrades, eras, prestige, events and game-like learning systems.",
-    "techStack": ["React", "Framer Motion", "Game UI", "State Management", "CSS"],
-    "proofTags": ["Interactive UI", "Game systems", "Frontend architecture", "UX experiments"]
+    "shortDescription": "A React-based educational clicker with knowledge progression, upgrades, eras, random events, prestige mechanics and interactive UI effects.",
+    "problem": "A graduation web project needed to be more memorable than a standard CRUD app while still demonstrating frontend structure, state, UI systems and product thinking.",
+    "solution": "Create an educational clicker where academic progress becomes a game loop: users gain knowledge and XP, unlock upgrades, pass through academic eras, react to events and use prestige mechanics.",
+    "myRole": [
+      "Designed the game loop and progression systems.",
+      "Built React components and UI structure.",
+      "Implemented eras, upgrades, events and prestige logic.",
+      "Worked on visual feedback, animation and theme direction."
+    ],
+    "techStack": [
+      "React",
+      "Framer Motion",
+      "CSS",
+      "Game UI",
+      "State Management",
+      "Frontend Architecture"
+    ],
+    "architecture": [
+      {
+        "title": "Game loop",
+        "items": [
+          "Knowledge counter",
+          "XP generation",
+          "Upgrade purchases",
+          "Auto-progress mechanics"
+        ]
+      },
+      {
+        "title": "Progression systems",
+        "items": [
+          "Academic eras",
+          "Prestige reset",
+          "Multiplier growth",
+          "Achievement-style progression"
+        ]
+      },
+      {
+        "title": "Event systems",
+        "items": [
+          "Random events",
+          "Story-like chains",
+          "Reputation and event history concepts"
+        ]
+      },
+      {
+        "title": "UI layer",
+        "items": [
+          "Componentized React structure",
+          "Animated feedback",
+          "Thematic educational interface"
+        ]
+      }
+    ],
+    "features": [
+      "Knowledge and XP counters",
+      "Upgrade panel",
+      "Academic eras",
+      "Prestige mechanics",
+      "Random events",
+      "Animated feedback",
+      "Educational theme and game-like UX"
+    ],
+    "result": [
+      "Turned a simple frontend assignment into a more distinctive interactive product.",
+      "Demonstrated ability to design systems, not just screens.",
+      "Good foundation for future gamified learning experiments."
+    ],
+    "whatILearned": [
+      "Game loops need clear feedback and progression pacing.",
+      "Frontend architecture matters even in playful projects.",
+      "Animations should support user understanding, not just decoration."
+    ],
+    "whyItMatters": "This project shows creative frontend ability: state-driven UI, interaction design, animation, game mechanics and modular React thinking.",
+    "screenshots": [
+      {
+        "src": "/screenshots/learning-clicker-placeholder.png",
+        "alt": "Learning Clicker UI placeholder",
+        "caption": "Placeholder for progression screen, upgrades and events."
+      }
+    ],
+    "links": [
+      {
+        "label": "Demo placeholder",
+        "url": "#",
+        "type": "demo"
+      }
+    ],
+    "proofTags": [
+      "Interactive UI",
+      "Game systems",
+      "Frontend architecture",
+      "UX experiments",
+      "React"
+    ]
   },
   {
     "id": "cbdc-research",
     "slug": "cbdc-research",
     "title": "CBDC Financial Analytics Research",
-    "subtitle": "Digital currency and macroeconomic analysis",
-    "category": ["data", "finance", "research"],
+    "subtitle": "Digital currency, macroeconomic indicators and econometric analysis",
+    "category": [
+      "data",
+      "finance",
+      "research"
+    ],
     "status": "completed",
     "year": 2025,
-    "shortDescription": "Master research on CBDC impact using OLS, econometrics, macro indicators and Digital Tenge context.",
-    "techStack": ["Python", "statsmodels", "Econometrics", "OLS", "Financial Analytics"],
-    "proofTags": ["Research", "Data analysis", "CBDC", "Macroeconomics"]
+    "shortDescription": "Master research on Central Bank Digital Currency impact using OLS regression, macroeconomic indicators, econometric diagnostics and Digital Tenge context.",
+    "problem": "CBDC is often discussed as a technology topic, but its macroeconomic effects require analytical framing: inflation, money velocity, credit supply, financial inclusion and central bank policy transmission.",
+    "solution": "Analyze CBDC-related macroeconomic scenarios using financial analytics, OLS regression, diagnostic checks and scenario reasoning around cash replacement and Digital Tenge implications.",
+    "myRole": [
+      "Defined the research framing around CBDC and macroeconomic indicators.",
+      "Prepared data analysis workflow and econometric modeling.",
+      "Interpreted results for inflation, credit and policy transmission context.",
+      "Presented the work as a finance + data analytics research case."
+    ],
+    "techStack": [
+      "Python",
+      "statsmodels",
+      "Econometrics",
+      "OLS",
+      "Financial Analytics",
+      "CBDC",
+      "Data Visualization"
+    ],
+    "architecture": [
+      {
+        "title": "Research design",
+        "items": [
+          "CBDC impact hypothesis",
+          "Macroeconomic indicator selection",
+          "Digital Tenge context"
+        ]
+      },
+      {
+        "title": "Modeling",
+        "items": [
+          "OLS regression",
+          "Robust standard errors",
+          "Diagnostic checks",
+          "Scenario analysis"
+        ]
+      },
+      {
+        "title": "Data story",
+        "items": [
+          "Inflation and credit interpretation",
+          "Velocity and liquidity reasoning",
+          "Policy recommendations"
+        ]
+      }
+    ],
+    "features": [
+      "OLS regression workflow",
+      "Macroeconomic indicator analysis",
+      "CBDC scenario framing",
+      "Digital Tenge context",
+      "Research presentation",
+      "Data visualization outputs"
+    ],
+    "result": [
+      "Created a clear research bridge between finance, policy and data analysis.",
+      "Demonstrated ability to use analytical methods, not only software tools.",
+      "Built a strong FinTech/data case for the portfolio."
+    ],
+    "whatILearned": [
+      "Financial technology questions need both technical and economic reasoning.",
+      "Regression output matters only when the interpretation is honest and contextual.",
+      "CBDC is a strong domain bridge between finance, data and systems thinking."
+    ],
+    "whyItMatters": "This case gives the portfolio domain depth: finance, CBDC, macroeconomics, econometrics and analytical communication.",
+    "screenshots": [
+      {
+        "src": "/screenshots/cbdc-research-placeholder.png",
+        "alt": "CBDC research charts placeholder",
+        "caption": "Placeholder for regression output, charts and thesis visuals."
+      }
+    ],
+    "links": [
+      {
+        "label": "Research summary placeholder",
+        "url": "#",
+        "type": "docs"
+      }
+    ],
+    "proofTags": [
+      "Research",
+      "Data analysis",
+      "CBDC",
+      "Macroeconomics",
+      "OLS"
+    ]
   }
 ]

@@ -4,6 +4,49 @@
     "title": "Profile Summary",
     "type": "profile",
     "content": "Galymzhan Yessimbek is an AI/LLM-oriented full-stack developer with education in Cyberphysics and Applied Finance / Financial Analytics.",
-    "metadata": { "tags": ["profile", "summary"], "priority": 10 }
+    "metadata": {
+      "tags": [
+        "profile",
+        "summary"
+      ],
+      "priority": 10
+    }
+  },
+  {
+    "id": "kb-pbi-monitor",
+    "title": "PBI Monitor",
+    "type": "project",
+    "content": "PBI Monitor is a working desktop/internal automation application for daily Power BI dashboard refresh monitoring. It supports a business analytics workflow where dashboard update checks need to be repeatable, documented and easier to manage than manual inspection. It is positioned as a product-style internal tool with future potential for synchronization, notifications and reporting.",
+    "metadata": {
+      "sourceId": "pbi-monitor",
+      "sourceType": "project",
+      "tags": [
+        "desktop",
+        "automation",
+        "Power BI",
+        "analytics",
+        "internal tool"
+      ],
+      "priority": 5
+    }
+  },
+  {
+    "id": "kb-abafar-convertor",
+    "title": "AbafarConvertor",
+    "type": "project",
+    "content": "AbafarConvertor is a YouTube-to-MP3 utility project with a Node/Express backend and an Expo/React Native client. The backend exposes video info and download endpoints, orchestrates yt-dlp conversion to MP3, sends the generated file to the client and removes the temporary file after download.",
+    "metadata": {
+      "sourceId": "abafar-convertor",
+      "sourceType": "project",
+      "tags": [
+        "Node",
+        "Express",
+        "Expo",
+        "React Native",
+        "yt-dlp",
+        "MP3"
+      ],
+      "priority": 3
+    }
   }
 ]

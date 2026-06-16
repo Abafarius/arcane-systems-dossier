@@ -6,6 +6,7 @@
   "summary": "I build AI-powered systems, interactive data experiences and full-stack products at the intersection of technology, finance and creative engineering. My background combines Cyberphysics, Financial Analytics, backend/API development, RAG systems, local LLM experiments and interactive frontend products.",
   "positioning": [
     "AI / LLM / RAG systems",
+    "Internal tools and workflow automation",
     "Full-stack product development",
     "Backend architecture and API design",
     "Interactive frontend and creative coding",
@@ -16,13 +17,15 @@
     "Full-stack Developer",
     "Backend Developer",
     "Frontend Developer",
+    "Internal Tools / Automation Developer",
     "Data / Financial Analytics Specialist",
     "Creative Technologist"
   ],
   "highlights": [
+    "Built PBI Monitor: a working desktop/internal automation tool for daily Power BI dashboard refresh checks and business analytics workflows.",
     "Built a local-LLM/RAG concept for a Telegram-based company knowledge assistant using Ollama, ChromaDB, PostgreSQL and Python.",
     "Delivered FinCat: a full-stack financial organizations catalog with Django REST Framework, Nuxt 3, JWT auth, roles, CRUD and Dockerized PostgreSQL.",
-    "Created an educational React clicker with progression systems, upgrades, eras, events and prestige mechanics.",
+    "Built AbafarConvertor: a YouTube-to-MP3 utility with Node/Express backend and Expo/React Native client structure.",
     "Completed CBDC research using OLS regression, econometrics and macroeconomic indicators with Digital Tenge context."
   ],
   "education": [
@@ -60,43 +63,132 @@
   "skillGroups": [
     {
       "group": "AI / LLM / RAG",
-      "items": ["RAG", "Ollama", "Local LLM", "ChromaDB", "Embeddings", "Prompt engineering", "Provider abstraction", "Grounded answers"]
+      "items": [
+        "RAG",
+        "Ollama",
+        "Local LLM",
+        "ChromaDB",
+        "Embeddings",
+        "Prompt engineering",
+        "Provider abstraction",
+        "Grounded answers"
+      ]
     },
     {
       "group": "Backend",
-      "items": ["Python", "Django", "Django REST Framework", "FastAPI", "PostgreSQL", "JWT", "Docker", "API design"]
+      "items": [
+        "Python",
+        "Node.js",
+        "Express",
+        "Django",
+        "Django REST Framework",
+        "FastAPI",
+        "PostgreSQL",
+        "JWT",
+        "Docker",
+        "API design"
+      ]
     },
     {
       "group": "Frontend",
-      "items": ["React", "TypeScript", "Vue", "Nuxt 3", "Tailwind CSS", "Framer Motion", "Three.js", "React Three Fiber"]
+      "items": [
+        "React",
+        "TypeScript",
+        "Vue",
+        "Nuxt 3",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Three.js",
+        "React Three Fiber"
+      ]
     },
     {
       "group": "Data / Finance",
-      "items": ["Financial analytics", "CBDC research", "Digital Tenge", "OLS", "Econometrics", "Macroeconomic analysis", "Python analytics"]
+      "items": [
+        "Financial analytics",
+        "CBDC research",
+        "Digital Tenge",
+        "OLS",
+        "Econometrics",
+        "Macroeconomic analysis",
+        "Python analytics"
+      ]
     },
     {
       "group": "Product / UX",
-      "items": ["Modular design systems", "Interactive storytelling", "Data visualization", "Technical product thinking", "Creative technology"]
+      "items": [
+        "Modular design systems",
+        "Internal tools",
+        "Workflow automation",
+        "Interactive storytelling",
+        "Data visualization",
+        "Technical product thinking",
+        "Creative technology"
+      ]
     }
   ],
-  "featuredProjects": ["ai-telegram-assistant", "fincat", "learning-clicker", "cbdc-research"],
+  "featuredProjects": [
+    "pbi-monitor",
+    "ai-telegram-assistant",
+    "fincat",
+    "abafar-convertor",
+    "learning-clicker",
+    "cbdc-research"
+  ],
   "research": [
     {
       "title": "Central Bank Digital Currency and Macroeconomic Indicators",
       "description": "Master research around CBDC issuance, Digital Tenge context and potential macroeconomic effects using econometric analysis and scenario thinking.",
-      "methods": ["OLS regression", "Robust standard errors", "Correlation analysis", "Scenario analysis", "Python analytics"],
-      "keywords": ["CBDC", "Digital Tenge", "Financial Analytics", "Macroeconomics", "Central Banking"]
+      "methods": [
+        "OLS regression",
+        "Robust standard errors",
+        "Correlation analysis",
+        "Scenario analysis",
+        "Python analytics"
+      ],
+      "keywords": [
+        "CBDC",
+        "Digital Tenge",
+        "Financial Analytics",
+        "Macroeconomics",
+        "Central Banking"
+      ]
     }
   ],
   "languages": [
-    { "name": "Kazakh", "level": "Professional / native-level working proficiency" },
-    { "name": "Russian", "level": "Professional / native-level working proficiency" },
-    { "name": "English", "level": "B2 / Duolingo English Test 115" }
+    {
+      "name": "Kazakh",
+      "level": "Professional / native-level working proficiency"
+    },
+    {
+      "name": "Russian",
+      "level": "Professional / native-level working proficiency"
+    },
+    {
+      "name": "English",
+      "level": "B2 / Duolingo English Test 115"
+    }
   ],
   "contacts": [
-    { "label": "Email", "value": "galymzhanyessimbek@gmail.com", "href": "" },
-    { "label": "GitHub", "value": "https://github.com/Abafarius", "href": "https://github.com/Abafarius" },
-    { "label": "LinkedIn", "value": "https://www.linkedin.com/in/galymzhan-yessimbek-618bb6235/", "href": "https://www.linkedin.com/in/galymzhan-yessimbek-618bb6235/" },
-    { "label": "Telegram", "value": "@Abafarius", "href": "https://t.me/Abafarius" }
+    {
+      "label": "Email",
+      "value": "Add email in resume.json",
+      "href": ""
+    },
+    {
+      "label": "GitHub",
+      "value": "Add GitHub URL in resume.json",
+      "href": ""
+    },
+    {
+      "label": "LinkedIn",
+      "value": "Add LinkedIn URL in resume.json",
+      "href": ""
+    },
+    {
+      "label": "Telegram",
+      "value": "Add Telegram username in resume.json",
+      "href": ""
+    }
   ]
 }
