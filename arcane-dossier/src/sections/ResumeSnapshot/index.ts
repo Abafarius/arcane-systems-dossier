@@ -1,0 +1,1 @@
+export { ResumeSnapshot } from "./ResumeSnapshot";

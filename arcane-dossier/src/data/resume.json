@@ -1,15 +1,102 @@
 {
   "name": "Galymzhan Yessimbek",
+  "alternateName": "Есимбек Галымжан",
   "title": "AI / LLM Engineer · Full-stack Developer · Creative Technologist",
-  "summary": "I build AI-powered systems, interactive data experiences and full-stack products at the intersection of technology, finance and creative engineering.",
+  "location": "Almaty, Kazakhstan",
+  "summary": "I build AI-powered systems, interactive data experiences and full-stack products at the intersection of technology, finance and creative engineering. My background combines Cyberphysics, Financial Analytics, backend/API development, RAG systems, local LLM experiments and interactive frontend products.",
+  "positioning": [
+    "AI / LLM / RAG systems",
+    "Full-stack product development",
+    "Backend architecture and API design",
+    "Interactive frontend and creative coding",
+    "Financial analytics and CBDC research"
+  ],
+  "roles": [
+    "AI / LLM Engineer",
+    "Full-stack Developer",
+    "Backend Developer",
+    "Frontend Developer",
+    "Data / Financial Analytics Specialist",
+    "Creative Technologist"
+  ],
+  "highlights": [
+    "Built a local-LLM/RAG concept for a Telegram-based company knowledge assistant using Ollama, ChromaDB, PostgreSQL and Python.",
+    "Delivered FinCat: a full-stack financial organizations catalog with Django REST Framework, Nuxt 3, JWT auth, roles, CRUD and Dockerized PostgreSQL.",
+    "Created an educational React clicker with progression systems, upgrades, eras, events and prestige mechanics.",
+    "Completed CBDC research using OLS regression, econometrics and macroeconomic indicators with Digital Tenge context."
+  ],
   "education": [
     {
-      "degree": "Bachelor",
-      "field": "Cyberphysics"
+      "degree": "Master",
+      "field": "Applied Finance / Financial Analytics",
+      "institution": "Narxoz University / Narxoz Business School",
+      "period": "Completed 2025",
+      "highlights": [
+        "Research focus: Central Bank Digital Currency and macroeconomic indicators.",
+        "Methods: OLS regression, econometrics, scenario analysis, Python-based analytics."
+      ]
     },
     {
-      "degree": "Master",
-      "field": "Applied Finance / Financial Analytics"
+      "degree": "Bachelor",
+      "field": "Cyberphysics",
+      "institution": "Al-Farabi Kazakh National University",
+      "period": "Completed",
+      "highlights": [
+        "Technical foundation across programming, data, physics and analytical modeling.",
+        "Relevant areas: machine learning, artificial intelligence, big data and computational thinking."
+      ]
+    },
+    {
+      "degree": "Software Development Program",
+      "field": "Full-stack / Software Development",
+      "institution": "IT STEP Academy",
+      "period": "Completed 2025",
+      "highlights": [
+        "Built a React-based educational game/product as a diploma project.",
+        "Focused on frontend architecture, backend integration and product implementation."
+      ]
     }
+  ],
+  "skillGroups": [
+    {
+      "group": "AI / LLM / RAG",
+      "items": ["RAG", "Ollama", "Local LLM", "ChromaDB", "Embeddings", "Prompt engineering", "Provider abstraction", "Grounded answers"]
+    },
+    {
+      "group": "Backend",
+      "items": ["Python", "Django", "Django REST Framework", "FastAPI", "PostgreSQL", "JWT", "Docker", "API design"]
+    },
+    {
+      "group": "Frontend",
+      "items": ["React", "TypeScript", "Vue", "Nuxt 3", "Tailwind CSS", "Framer Motion", "Three.js", "React Three Fiber"]
+    },
+    {
+      "group": "Data / Finance",
+      "items": ["Financial analytics", "CBDC research", "Digital Tenge", "OLS", "Econometrics", "Macroeconomic analysis", "Python analytics"]
+    },
+    {
+      "group": "Product / UX",
+      "items": ["Modular design systems", "Interactive storytelling", "Data visualization", "Technical product thinking", "Creative technology"]
+    }
+  ],
+  "featuredProjects": ["ai-telegram-assistant", "fincat", "learning-clicker", "cbdc-research"],
+  "research": [
+    {
+      "title": "Central Bank Digital Currency and Macroeconomic Indicators",
+      "description": "Master research around CBDC issuance, Digital Tenge context and potential macroeconomic effects using econometric analysis and scenario thinking.",
+      "methods": ["OLS regression", "Robust standard errors", "Correlation analysis", "Scenario analysis", "Python analytics"],
+      "keywords": ["CBDC", "Digital Tenge", "Financial Analytics", "Macroeconomics", "Central Banking"]
+    }
+  ],
+  "languages": [
+    { "name": "Kazakh", "level": "Professional / native-level working proficiency" },
+    { "name": "Russian", "level": "Professional / native-level working proficiency" },
+    { "name": "English", "level": "B2 / Duolingo English Test 115" }
+  ],
+  "contacts": [
+    { "label": "Email", "value": "galymzhanyessimbek@gmail.com", "href": "" },
+    { "label": "GitHub", "value": "https://github.com/Abafarius", "href": "" },
+    { "label": "LinkedIn", "value": "https://www.linkedin.com/in/galymzhan-yessimbek-618bb6235/", "href": "" },
+    { "label": "Telegram", "value": "@Abafarius", "href": "" }
   ]
 }
