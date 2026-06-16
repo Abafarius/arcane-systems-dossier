@@ -95,8 +95,8 @@
   ],
   "contacts": [
     { "label": "Email", "value": "galymzhanyessimbek@gmail.com", "href": "" },
-    { "label": "GitHub", "value": "https://github.com/Abafarius", "href": "" },
-    { "label": "LinkedIn", "value": "https://www.linkedin.com/in/galymzhan-yessimbek-618bb6235/", "href": "" },
-    { "label": "Telegram", "value": "@Abafarius", "href": "" }
+    { "label": "GitHub", "value": "https://github.com/Abafarius", "href": "https://github.com/Abafarius" },
+    { "label": "LinkedIn", "value": "https://www.linkedin.com/in/galymzhan-yessimbek-618bb6235/", "href": "https://www.linkedin.com/in/galymzhan-yessimbek-618bb6235/" },
+    { "label": "Telegram", "value": "@Abafarius", "href": "https://t.me/Abafarius" }
   ]
 }
