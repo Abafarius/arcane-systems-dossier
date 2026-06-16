@@ -1,0 +1,17 @@
+:root,
+[data-theme="arcane-dark"] {
+  color-scheme: dark;
+}
+
+[data-theme="corporate-light"] {
+  color-scheme: light;
+  --color-background: #f7f3ea;
+  --color-surface: #ffffff;
+  --color-surface-elevated: rgba(255, 255, 255, 0.78);
+  --color-border: rgba(15, 23, 42, 0.14);
+  --color-text-primary: #101320;
+  --color-text-secondary: #475569;
+  --color-accent-gold: #a56a16;
+  --color-accent-violet: #6d4aff;
+  --color-accent-blue: #2563eb;
+}

@@ -1,0 +1,9 @@
+[
+  {
+    "id": "profile-summary",
+    "title": "Profile Summary",
+    "type": "profile",
+    "content": "Galymzhan Yessimbek is an AI/LLM-oriented full-stack developer with education in Cyberphysics and Applied Finance / Financial Analytics.",
+    "metadata": { "tags": ["profile", "summary"], "priority": 10 }
+  }
+]

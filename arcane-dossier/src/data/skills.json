@@ -1,0 +1,6 @@
+[
+  { "id": "rag", "name": "RAG", "category": "ai-llm", "level": "strong" },
+  { "id": "django", "name": "Django REST Framework", "category": "backend", "level": "working" },
+  { "id": "react", "name": "React", "category": "frontend", "level": "strong" },
+  { "id": "three", "name": "Three.js / React Three Fiber", "category": "frontend", "level": "foundation" }
+]

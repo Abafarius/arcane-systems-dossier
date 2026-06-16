@@ -1,0 +1,50 @@
+[
+  {
+    "id": "ai-telegram-assistant",
+    "slug": "ai-telegram-assistant",
+    "title": "AI Telegram Assistant",
+    "subtitle": "RAG assistant for company knowledge",
+    "category": ["ai", "backend"],
+    "status": "in-progress",
+    "year": 2026,
+    "shortDescription": "Commandless Telegram assistant that answers only from a controlled knowledge base using local LLM and retrieval.",
+    "techStack": ["Python", "aiogram", "Ollama", "ChromaDB", "PostgreSQL", "RAG"],
+    "proofTags": ["Local LLM", "Grounded answers", "Knowledge base", "Backend architecture"]
+  },
+  {
+    "id": "fincat",
+    "slug": "fincat",
+    "title": "FinCat",
+    "subtitle": "Financial organizations catalog",
+    "category": ["backend", "frontend", "finance"],
+    "status": "completed",
+    "year": 2025,
+    "shortDescription": "Full-stack catalog with DRF backend, Nuxt 3 frontend, JWT auth, roles, CRUD and Dockerized PostgreSQL setup.",
+    "techStack": ["Django REST Framework", "Nuxt 3", "PostgreSQL", "Docker", "JWT"],
+    "proofTags": ["API design", "Auth", "Roles", "CRUD", "Docker"]
+  },
+  {
+    "id": "learning-clicker",
+    "slug": "learning-clicker",
+    "title": "Век живи — век учись",
+    "subtitle": "Educational progression clicker",
+    "category": ["frontend", "creative-coding"],
+    "status": "completed",
+    "year": 2025,
+    "shortDescription": "React-based educational clicker with progression, upgrades, eras, prestige, events and game-like learning systems.",
+    "techStack": ["React", "Framer Motion", "Game UI", "State Management", "CSS"],
+    "proofTags": ["Interactive UI", "Game systems", "Frontend architecture", "UX experiments"]
+  },
+  {
+    "id": "cbdc-research",
+    "slug": "cbdc-research",
+    "title": "CBDC Financial Analytics Research",
+    "subtitle": "Digital currency and macroeconomic analysis",
+    "category": ["data", "finance", "research"],
+    "status": "completed",
+    "year": 2025,
+    "shortDescription": "Master research on CBDC impact using OLS, econometrics, macro indicators and Digital Tenge context.",
+    "techStack": ["Python", "statsmodels", "Econometrics", "OLS", "Financial Analytics"],
+    "proofTags": ["Research", "Data analysis", "CBDC", "Macroeconomics"]
+  }
+]
