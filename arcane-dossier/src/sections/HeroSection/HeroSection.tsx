@@ -1,7 +1,53 @@
+import { useMemo, lazy, Suspense } from "react";
+import { useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "../../components/ui/Button";
 import { Card } from "../../components/ui/Card";
+import { HeroSceneFallback } from "../../components/three/HeroScene/HeroSceneFallback";
+import { featureFlags } from "../../config/featureFlags";
 import { siteConfig } from "../../config/site.config";
+
+const LazyHeroScene = lazy(() =>
+  import("../../components/three/HeroScene/HeroScene").then((module) => ({ default: module.HeroScene })),
+);
+
+function HeroVisual() {
+  const prefersReducedMotion = useReducedMotion();
+  const shouldRenderThree = useMemo(
+    () => featureFlags.enableThreeHero && !prefersReducedMotion,
+    [prefersReducedMotion],
+  );
+
+  if (!shouldRenderThree) {
+    return (
+      <HeroSceneFallback reason={featureFlags.enableThreeHero ? "reduced-motion" : "disabled"} />
+    );
+  }
+
+  return (
+    <Card className="relative min-h-[430px] overflow-hidden p-0">
+      <Suspense fallback={<HeroSceneFallback reason="loading" />}>
+        <LazyHeroScene />
+      </Suspense>
+
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(216,168,79,0.16),transparent_22rem),radial-gradient(circle_at_70%_70%,rgba(143,108,255,0.16),transparent_19rem)]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[rgba(7,8,18,0.94)] via-[rgba(7,8,18,0.52)] to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent_0%,rgba(255,255,255,0.045)_48%,transparent_54%)]" />
+
+      <div className="relative z-10 flex min-h-[430px] flex-col justify-end p-8">
+        <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-accent-gold)]">
+          Live system concept
+        </p>
+        <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em]">
+          Static-first portfolio with AI and interactive data layers.
+        </h2>
+        <p className="mt-4 text-sm leading-6 text-[var(--color-text-secondary)]">
+          Lightweight Three.js archive core: lazy-loaded, isolated from UI, and safe to disable through feature flags or reduced motion preferences.
+        </p>
+      </div>
+    </Card>
+  );
+}
 
 export function HeroSection() {
   return (
@@ -33,23 +79,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      <Card className="relative min-h-[430px] overflow-hidden p-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(216,168,79,0.2),transparent_22rem),radial-gradient(circle_at_65%_65%,rgba(143,108,255,0.2),transparent_18rem)]" />
-        <div className="absolute left-1/2 top-1/2 size-44 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(216,168,79,0.35)] bg-[rgba(216,168,79,0.08)] shadow-[0_0_120px_rgba(216,168,79,0.24)]" />
-        <div className="absolute left-[16%] top-[18%] h-px w-[68%] rotate-12 bg-gradient-to-r from-transparent via-[rgba(216,168,79,0.45)] to-transparent" />
-        <div className="absolute left-[22%] top-[70%] h-px w-[58%] -rotate-12 bg-gradient-to-r from-transparent via-[rgba(143,108,255,0.45)] to-transparent" />
-        <div className="relative z-10 flex min-h-[430px] flex-col justify-end p-8">
-          <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-accent-gold)]">
-            Live system concept
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em]">
-            Static-first portfolio with AI and interactive data layers.
-          </h2>
-          <p className="mt-4 text-sm leading-6 text-[var(--color-text-secondary)]">
-            The 3D scene will be added later. This placeholder already keeps the premium dossier mood without blocking the MVP.
-          </p>
-        </div>
-      </Card>
+      <HeroVisual />
     </section>
   );
 }
