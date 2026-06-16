@@ -1,4 +1,5 @@
 import resume from "../../data/resume.json";
+import { StaggerContainer, StaggerItem } from "../../components/motion";
 import { Badge } from "../../components/ui/Badge";
 import { Card } from "../../components/ui/Card";
 import { SectionShell } from "../../layout/SectionShell";
@@ -16,7 +17,8 @@ export function ResumeSnapshot() {
       description="The site can be explored like an interactive dossier, but the core profile stays clear: role fit, education, skills, research and contact path."
     >
       <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
-        <Card>
+        <Card variant="gradient">
+          <div className="light-sweep" />
           <div className="mb-5 flex flex-wrap gap-2">
             {resumeData.roles.slice(0, 4).map((role, index) => (
               <Badge key={role} tone={index === 0 ? "gold" : "neutral"}>
@@ -30,16 +32,18 @@ export function ResumeSnapshot() {
           <p className="mt-4 leading-7 text-[var(--color-text-secondary)]">{resumeData.summary}</p>
         </Card>
 
-        <Card>
+        <Card variant="glass">
           <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">Proof highlights</h3>
-          <ul className="mt-4 space-y-3 text-sm leading-6 text-[var(--color-text-secondary)]">
+          <StaggerContainer as="ul" className="mt-4 space-y-3 text-sm leading-6 text-[var(--color-text-secondary)]">
             {resumeData.highlights.slice(0, 4).map((highlight) => (
-              <li key={highlight} className="flex gap-3">
-                <span className="mt-2 size-1.5 shrink-0 rounded-full bg-[var(--color-accent-gold)]" />
-                <span>{highlight}</span>
-              </li>
+              <StaggerItem key={highlight}>
+                <li className="flex gap-3">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-[var(--color-accent-gold)]" />
+                  <span>{highlight}</span>
+                </li>
+              </StaggerItem>
             ))}
-          </ul>
+          </StaggerContainer>
         </Card>
       </div>
     </SectionShell>

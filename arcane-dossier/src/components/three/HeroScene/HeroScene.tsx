@@ -1,27 +1,34 @@
 import { Line } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useMemo, useRef, useEffect } from "react";
-import type { Group, Points } from "three";
+import { useMemo, useRef } from "react";
+import type { Group, Mesh, Points } from "three";
 import { AdditiveBlending, BufferAttribute, BufferGeometry, MathUtils } from "three";
 
 interface HeroSceneProps {
   reducedMotion?: boolean;
 }
 
-function seededRandom(seed: number) {
-  const value = Math.sin(seed * 12.9898) * 43758.5453123;
-  return value - Math.floor(value);
-}
+type Vector3Tuple = [number, number, number];
+
+type ShardConfig = {
+  id: string;
+  position: Vector3Tuple;
+  rotation: Vector3Tuple;
+  scale: number;
+  color: string;
+};
+
+const shardPalette = ["#d8a84f", "#8f6cff", "#5da8ff"] as const;
 
 function ParticleField() {
-  const particles = useMemo<BufferGeometry>(() => {
-    const count = 120;
+  const particles = useMemo(() => {
+    const count = 180;
     const positions = new Float32Array(count * 3);
 
     for (let index = 0; index < count; index += 1) {
-      const radius = 2.2 + seededRandom(index * 1.7 + 0.1) * 2.4;
-      const angle = seededRandom(index * 2.9 + 1.7) * Math.PI * 2;
-      const height = (seededRandom(index * 3.3 + 2.1) - 0.5) * 3.6;
+      const radius = 1.8 + ((index * 37) % 100) / 100 * 3.2;
+      const angle = index * 2.399963229728653;
+      const height = Math.sin(index * 1.73) * 1.9;
 
       positions[index * 3] = Math.cos(angle) * radius;
       positions[index * 3 + 1] = height;
@@ -33,20 +40,14 @@ function ParticleField() {
     return geometry;
   }, []);
 
-  useEffect(() => {
-    return () => {
-      particles.dispose();
-    };
-  }, [particles]);
-
   const pointsRef = useRef<Points>(null);
 
   useFrame((state) => {
     if (!pointsRef.current) return;
-    pointsRef.current.rotation.y = state.clock.elapsedTime * 0.025;
-  });
 
-  if (!particles) return null;
+    pointsRef.current.rotation.y = state.clock.elapsedTime * 0.018;
+    pointsRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.12) * 0.035;
+  });
 
   return (
     <points ref={pointsRef} geometry={particles}>
@@ -55,8 +56,8 @@ function ParticleField() {
         blending={AdditiveBlending}
         color="#d8a84f"
         depthWrite={false}
-        opacity={0.52}
-        size={0.025}
+        opacity={0.46}
+        size={0.023}
         sizeAttenuation
         transparent
       />
@@ -66,38 +67,67 @@ function ParticleField() {
 
 function ArchiveCore({ reducedMotion = false }: HeroSceneProps) {
   const groupRef = useRef<Group>(null);
+  const innerCoreRef = useRef<Mesh>(null);
+  const haloRef = useRef<Mesh>(null);
 
   useFrame((state) => {
     if (!groupRef.current || reducedMotion) return;
 
     const elapsed = state.clock.elapsedTime;
-    groupRef.current.rotation.y = elapsed * 0.22;
-    groupRef.current.rotation.x = Math.sin(elapsed * 0.35) * 0.12;
+    const breath = 1 + Math.sin(elapsed * 1.18) * 0.035;
+
+    groupRef.current.rotation.y = elapsed * 0.18;
+    groupRef.current.rotation.x = Math.sin(elapsed * 0.32) * 0.11;
+
+    if (innerCoreRef.current) {
+      innerCoreRef.current.scale.setScalar(breath);
+    }
+
+    if (haloRef.current) {
+      haloRef.current.rotation.z = elapsed * -0.12;
+      haloRef.current.scale.setScalar(1.32 + Math.sin(elapsed * 0.8) * 0.035);
+    }
   });
 
   return (
     <group ref={groupRef}>
-      <mesh>
-        <icosahedronGeometry args={[0.88, 1]} />
+      <mesh ref={haloRef}>
+        <torusGeometry args={[1.08, 0.012, 12, 120]} />
+        <meshBasicMaterial color="#d8a84f" opacity={0.38} transparent />
+      </mesh>
+
+      <mesh rotation={[Math.PI / 2.35, 0.1, Math.PI / 4]} scale={1.05}>
+        <torusGeometry args={[1.38, 0.009, 10, 140]} />
+        <meshBasicMaterial color="#8f6cff" opacity={0.32} transparent />
+      </mesh>
+
+      <mesh rotation={[Math.PI / 2.1, Math.PI / 5, Math.PI / 9]} scale={1.24}>
+        <torusGeometry args={[1.26, 0.007, 10, 140]} />
+        <meshBasicMaterial color="#5da8ff" opacity={0.24} transparent />
+      </mesh>
+
+      <mesh ref={innerCoreRef}>
+        <octahedronGeometry args={[0.84, 2]} />
         <meshStandardMaterial
           color="#d8a84f"
           emissive="#6b3cff"
-          emissiveIntensity={0.34}
-          metalness={0.42}
-          opacity={0.58}
-          roughness={0.22}
+          emissiveIntensity={0.42}
+          metalness={0.58}
+          opacity={0.64}
+          roughness={0.18}
           transparent
         />
       </mesh>
-      <mesh scale={1.42}>
-        <icosahedronGeometry args={[0.88, 1]} />
+
+      <mesh scale={1.48}>
+        <icosahedronGeometry args={[0.78, 1]} />
         <meshStandardMaterial
           color="#8f6cff"
           emissive="#8f6cff"
-          emissiveIntensity={0.18}
+          emissiveIntensity={0.2}
           metalness={0.2}
-          opacity={0.12}
-          roughness={0.6}
+          opacity={0.1}
+          roughness={0.55}
           transparent
           wireframe
         />
@@ -108,18 +138,19 @@ function ArchiveCore({ reducedMotion = false }: HeroSceneProps) {
 
 function DataShardRing({ reducedMotion = false }: HeroSceneProps) {
   const groupRef = useRef<Group>(null);
-  const shards = useMemo(
+  const shards = useMemo<ShardConfig[]>(
     () =>
-      Array.from({ length: 20 }, (_, index) => {
-        const angle = (index / 20) * Math.PI * 2;
-        const radius = index % 2 === 0 ? 2.05 : 2.55;
-        const y = Math.sin(angle * 1.5) * 0.44;
+      Array.from({ length: 30 }, (_, index) => {
+        const angle = (index / 30) * Math.PI * 2;
+        const radius = index % 2 === 0 ? 2.1 : 2.68;
+        const y = Math.sin(angle * 1.8) * 0.52 + Math.cos(index * 0.7) * 0.08;
 
         return {
           id: `shard-${index}`,
-          position: [Math.cos(angle) * radius, y, Math.sin(angle) * radius] as const,
-          rotation: [Math.sin(angle) * 0.8, angle, Math.cos(angle) * 0.4] as const,
-          scale: index % 3 === 0 ? 1.15 : 0.86,
+          position: [Math.cos(angle) * radius, y, Math.sin(angle) * radius],
+          rotation: [Math.sin(angle) * 0.85, angle + Math.PI / 3, Math.cos(angle) * 0.5],
+          scale: index % 5 === 0 ? 1.25 : index % 3 === 0 ? 1.02 : 0.78,
+          color: shardPalette[index % shardPalette.length],
         };
       }),
     [],
@@ -129,22 +160,22 @@ function DataShardRing({ reducedMotion = false }: HeroSceneProps) {
     if (!groupRef.current || reducedMotion) return;
 
     const elapsed = state.clock.elapsedTime;
-    groupRef.current.rotation.y = elapsed * -0.16;
-    groupRef.current.rotation.z = Math.sin(elapsed * 0.18) * 0.08;
+    groupRef.current.rotation.y = elapsed * -0.12;
+    groupRef.current.rotation.z = Math.sin(elapsed * 0.16) * 0.065;
   });
 
   return (
     <group ref={groupRef}>
       {shards.map((shard) => (
         <mesh key={shard.id} position={shard.position} rotation={shard.rotation} scale={shard.scale}>
-          <boxGeometry args={[0.06, 0.42, 0.14]} />
+          <boxGeometry args={[0.045, 0.46, 0.13]} />
           <meshStandardMaterial
-            color="#5da8ff"
-            emissive="#5da8ff"
-            emissiveIntensity={0.35}
-            metalness={0.36}
-            opacity={0.74}
-            roughness={0.28}
+            color={shard.color}
+            emissive={shard.color}
+            emissiveIntensity={0.42}
+            metalness={0.4}
+            opacity={0.72}
+            roughness={0.22}
             transparent
           />
         </mesh>
@@ -159,20 +190,26 @@ function ConstellationLines() {
   const paths = useMemo<LinePoint[][]>(
     () => [
       [
-        [-2.7, -0.95, -0.45],
-        [-1.2, 0.25, 0.18],
-        [0.4, -0.1, -0.12],
-        [2.6, 0.75, 0.28],
+        [-3.2, -1.15, -0.45],
+        [-1.5, 0.1, 0.18],
+        [0.2, -0.2, -0.12],
+        [2.9, 0.86, 0.28],
       ],
       [
-        [-2.2, 1.1, 0.1],
-        [-0.5, 1.45, -0.2],
-        [1.6, 0.95, 0.24],
+        [-2.55, 1.2, 0.1],
+        [-0.6, 1.55, -0.2],
+        [1.85, 1.02, 0.24],
+        [3.1, 1.42, -0.12],
       ],
       [
-        [-1.8, -1.4, 0.35],
-        [0.1, -1.1, -0.15],
-        [1.8, -1.6, 0.2],
+        [-2.4, -1.55, 0.35],
+        [-0.2, -1.18, -0.15],
+        [2.18, -1.7, 0.2],
+      ],
+      [
+        [-1.1, 2.0, -0.2],
+        [0.15, 0.95, 0.3],
+        [1.52, 1.7, -0.1],
       ],
     ],
     [],
@@ -183,9 +220,9 @@ function ConstellationLines() {
       {paths.map((points, index) => (
         <Line
           key={`constellation-line-${index}`}
-          color={index === 1 ? "#d8a84f" : "#8f6cff"}
+          color={index % 2 === 0 ? "#d8a84f" : "#8f6cff"}
           lineWidth={1}
-          opacity={0.38}
+          opacity={0.32}
           points={points}
           transparent
         />
@@ -200,12 +237,13 @@ function SceneContent({ reducedMotion = false }: HeroSceneProps) {
   useFrame((state) => {
     if (!sceneRef.current || reducedMotion) return;
 
-    sceneRef.current.rotation.x = MathUtils.lerp(sceneRef.current.rotation.x, state.pointer.y * 0.12, 0.04);
-    sceneRef.current.rotation.y = MathUtils.lerp(sceneRef.current.rotation.y, state.pointer.x * 0.18, 0.04);
+    sceneRef.current.rotation.x = MathUtils.lerp(sceneRef.current.rotation.x, state.pointer.y * 0.13, 0.035);
+    sceneRef.current.rotation.y = MathUtils.lerp(sceneRef.current.rotation.y, state.pointer.x * 0.2, 0.035);
+    sceneRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.05;
   });
 
   return (
-    <group ref={sceneRef}>
+    <group ref={sceneRef} position={[0, 0.05, 0]}>
       <ParticleField />
       <ConstellationLines />
       <ArchiveCore reducedMotion={reducedMotion} />
@@ -218,14 +256,16 @@ export function HeroScene({ reducedMotion = false }: HeroSceneProps) {
   return (
     <div className="absolute inset-0">
       <Canvas
-        camera={{ fov: 42, position: [0, 0, 6.4] }}
+        camera={{ fov: 40, position: [0, 0.08, 6.4] }}
         dpr={[1, 1.5]}
         gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
       >
         <color attach="background" args={["#070812"]} />
-        <ambientLight intensity={0.52} />
-        <pointLight color="#d8a84f" intensity={3.4} position={[2.8, 2.6, 3]} />
-        <pointLight color="#8f6cff" intensity={2.2} position={[-3, -1.5, 2]} />
+        <fog attach="fog" args={["#070812", 5.5, 10]} />
+        <ambientLight intensity={0.48} />
+        <pointLight color="#d8a84f" intensity={3.8} position={[2.8, 2.7, 3]} />
+        <pointLight color="#8f6cff" intensity={2.4} position={[-3, -1.5, 2.2]} />
+        <pointLight color="#5da8ff" intensity={1.4} position={[0, -2.2, 3.1]} />
         <SceneContent reducedMotion={reducedMotion} />
       </Canvas>
     </div>

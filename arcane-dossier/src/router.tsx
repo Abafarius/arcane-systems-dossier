@@ -1,4 +1,5 @@
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
+import { RouteTransitionShell } from "./components/layout/RouteTransitionShell";
 import { HomePage } from "./pages/HomePage";
 import { MusicPage } from "./pages/MusicPage";
 import { OraclePage } from "./pages/OraclePage";
@@ -8,10 +9,12 @@ import { ResumePage } from "./pages/ResumePage";
 import { SkillsPage } from "./pages/SkillsPage";
 import { SystemPage } from "./pages/SystemPage";
 
-export function AppRouter() {
+function AnimatedRoutes() {
+  const location = useLocation();
+
   return (
-    <HashRouter>
-      <Routes>
+    <RouteTransitionShell>
+      <Routes location={location}>
         <Route path="/" element={<HomePage />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/projects/:slug" element={<ProjectCaseStudyPage />} />
@@ -21,6 +24,14 @@ export function AppRouter() {
         <Route path="/resume" element={<ResumePage />} />
         <Route path="/system" element={<SystemPage />} />
       </Routes>
+    </RouteTransitionShell>
+  );
+}
+
+export function AppRouter() {
+  return (
+    <HashRouter>
+      <AnimatedRoutes />
     </HashRouter>
   );
 }
