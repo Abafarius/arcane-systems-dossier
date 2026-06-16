@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Badge } from "../../components/ui/Badge";
 import { Card } from "../../components/ui/Card";
 import { Button } from "../../components/ui/Button";
+import { SkillConstellation } from "../../components/three/SkillConstellation";
 import { projects } from "../../features/projects/projectData";
 import {
   skillCategories,
@@ -79,13 +80,12 @@ export function SkillTreeSection() {
     >
       <div className="grid gap-6 lg:grid-cols-[300px_minmax(0,1fr)]">
         <Card variant="glass" className="h-fit p-4 lg:sticky lg:top-28">
-          <div className="skill-constellation mb-4 rounded-2xl border border-[var(--color-border)] p-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-gold)]">
-              Domains
-            </p>
-            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">
-              Filter the capability graph by technical domain.
-            </p>
+          <div className="mb-4">
+            <SkillConstellation
+              activeCategory={activeFilter}
+              selectedSkillId={selectedSkill.id}
+              onSelectSkill={setSelectedSkillId}
+            />
           </div>
 
           <div className="space-y-2">

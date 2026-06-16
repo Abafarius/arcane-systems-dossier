@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Badge } from "../../components/ui/Badge";
 import { Card } from "../../components/ui/Card";
+import { ProjectOrbit } from "../../components/three/ProjectOrbit";
 import { projects, projectCategories, projectCategoryLabels, projectStatusLabels } from "../../features/projects/projectData";
 import { filterProjects, type ProjectFilter } from "../../features/projects/projectFilters";
 import type { Project, ProjectCategory } from "../../features/projects/projectTypes";
@@ -97,6 +98,9 @@ export function ProjectsQuestLog({
 
   return (
     <SectionShell id="projects" eyebrow="Quest log" title={title} description={description}>
+
+      {showFilters ? <ProjectOrbit projects={projects} activeFilter={activeFilter} /> : null}
+
       {showFilters ? (
         <div className="mb-8 flex flex-wrap gap-2 rounded-3xl border border-[var(--color-border)] bg-white/[0.025] p-2">
           {filterOptions.map((option) => {

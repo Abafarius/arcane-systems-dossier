@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { navItems } from "../../config/nav.config";
+import { getIcon } from "../../config/iconMap";
 import { siteConfig } from "../../config/site.config";
 import { cn } from "../../lib/cn";
 
@@ -34,13 +35,14 @@ export function PageShell({ children }: PageShellProps) {
           <nav className="hidden items-center gap-1 rounded-full border border-[var(--color-border)] bg-white/[0.03] p-1 md:flex" aria-label="Main navigation">
             {navItems.map((item) => {
               const isActive = location.pathname.startsWith(item.href);
+              const Icon = getIcon(item.icon);
 
               return (
                 <NavLink
                   key={item.href}
                   to={item.href}
                   className={cn(
-                    "relative rounded-full px-3.5 py-2 text-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-gold)]",
+                    "relative inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-gold)]",
                     isActive ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]",
                   )}
                 >
@@ -51,6 +53,7 @@ export function PageShell({ children }: PageShellProps) {
                       transition={{ type: "spring", stiffness: 360, damping: 32 }}
                     />
                   ) : null}
+                  <Icon className="relative z-10 size-4" strokeWidth={1.8} />
                   <span className="relative z-10">{item.label}</span>
                 </NavLink>
               );

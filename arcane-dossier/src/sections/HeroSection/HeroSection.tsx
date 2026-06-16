@@ -1,7 +1,8 @@
-import { useMemo, lazy, Suspense } from "react";
+import { useMemo, useState, lazy, Suspense } from "react";
 import { useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "../../components/ui/Button";
+import { Cpu, Sparkles, Terminal, Workflow } from "lucide-react";
 import { HeroSceneFallback } from "../../components/three/HeroScene/HeroSceneFallback";
 import { featureFlags } from "../../config/featureFlags";
 import { siteConfig } from "../../config/site.config";
@@ -24,6 +25,7 @@ const telemetry = [
 ] as const;
 
 function HeroVisual() {
+  const [expanded, setExpanded] = useState(false);
   const prefersReducedMotion = useReducedMotion();
   const shouldRenderThree = useMemo(
     () => featureFlags.enableThreeHero && !prefersReducedMotion,
@@ -35,31 +37,51 @@ function HeroVisual() {
   }
 
   return (
-    <div className="group relative min-h-[460px] overflow-hidden rounded-[2rem] border border-white/[0.11] bg-[linear-gradient(145deg,rgba(19,22,38,0.88),rgba(8,9,20,0.96))] shadow-[0_30px_100px_rgba(0,0,0,0.45)] transition duration-500 hover:border-[rgba(216,168,79,0.35)] hover:shadow-[0_34px_120px_rgba(143,108,255,0.18)] sm:min-h-[520px]">
+    <button
+      type="button"
+      aria-pressed={expanded}
+      onClick={() => setExpanded((current) => !current)}
+      className="group relative min-h-[460px] w-full overflow-hidden rounded-[2rem] text-left border border-white/[0.11] bg-[linear-gradient(145deg,rgba(19,22,38,0.88),rgba(8,9,20,0.96))] shadow-[0_30px_100px_rgba(0,0,0,0.45)] transition duration-500 hover:border-[rgba(216,168,79,0.35)] hover:shadow-[0_34px_120px_rgba(143,108,255,0.18)] sm:min-h-[520px]">
       <div className="pointer-events-none absolute -inset-32 opacity-0 blur-3xl transition duration-700 group-hover:opacity-100">
         <div className="h-full w-full animate-[spin_18s_linear_infinite] bg-[conic-gradient(from_120deg,transparent,rgba(216,168,79,0.16),transparent,rgba(143,108,255,0.18),transparent)]" />
       </div>
 
       <Suspense fallback={<HeroSceneFallback reason="loading" compact />}>
-        <LazyHeroScene />
+        <LazyHeroScene expanded={expanded} />
       </Suspense>
 
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_34%,rgba(216,168,79,0.12),transparent_18rem),radial-gradient(circle_at_72%_64%,rgba(143,108,255,0.14),transparent_22rem),linear-gradient(180deg,rgba(7,8,18,0.1),rgba(7,8,18,0.92))]" />
       <div className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(255,255,255,0.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.7)_1px,transparent_1px)] [background-size:42px_42px]" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,transparent_0%,rgba(255,255,255,0.04)_42%,transparent_52%)]" />
 
-      <div className="relative z-10 flex min-h-[460px] flex-col justify-between p-5 sm:min-h-[520px] sm:p-7">
+      <div className="pointer-events-none absolute inset-0 z-10">
+        {["RAG", "LLM", "FINTECH", "DATA", "FRONTEND", "SYSTEMS"].map((label, index) => (
+          <span
+            key={label}
+            className="absolute rounded-full border border-white/[0.10] bg-black/[0.20] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--color-text-secondary)] shadow-[0_0_28px_rgba(143,108,255,0.10)] backdrop-blur-md transition duration-500 group-hover:text-[var(--color-accent-gold)]"
+            style={{
+              left: `${12 + ((index * 17) % 68)}%`,
+              top: `${24 + ((index * 29) % 48)}%`,
+              transform: `translateY(${expanded ? -6 + index : 0}px)`,
+            }}
+          >
+            {label}
+          </span>
+        ))}
+      </div>
+
+      <div className="relative z-20 flex min-h-[460px] flex-col justify-between p-5 sm:min-h-[520px] sm:p-7">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-accent-gold)]">
               Arcane Archive Core
             </p>
             <p className="mt-2 max-w-sm text-xs leading-5 text-[var(--color-text-secondary)]">
-              Live system console for a static-first portfolio with AI, data and interactive visual layers.
+              Click the archive core to expand the knowledge engine. Static content stays readable while the visual layer reacts.
             </p>
           </div>
           <div className="rounded-full border border-[rgba(110,231,168,0.28)] bg-[rgba(110,231,168,0.09)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-success)] shadow-[0_0_24px_rgba(110,231,168,0.12)]">
-            System online
+            {expanded ? "Core expanded" : "System online"}
           </div>
         </div>
 
@@ -83,7 +105,7 @@ function HeroVisual() {
           ))}
         </div>
       </div>
-    </div>
+    </button>
   );
 }
 
@@ -121,21 +143,21 @@ export function HeroSection() {
         <div className="mt-9 flex flex-wrap gap-3">
           <Link to="/projects">
             <Button className="shadow-[0_0_34px_rgba(216,168,79,0.12)] hover:shadow-[0_0_46px_rgba(216,168,79,0.24)]">
-              View Projects
+              <Sparkles className="size-4" /> View Projects
             </Button>
           </Link>
           <Link to="/oracle">
             <Button variant="secondary" className="hover:shadow-[0_0_46px_rgba(143,108,255,0.22)]">
-              Ask Portfolio Oracle
+              <Terminal className="size-4" /> Ask Portfolio Oracle
             </Button>
           </Link>
           <Link to="/music">
-            <Button variant="ghost">Explore Music Map</Button>
+            <Button variant="ghost"><Workflow className="size-4" /> Explore Music Map</Button>
           </Link>
         </div>
 
         <div className="mt-7 max-w-2xl rounded-2xl border border-white/[0.08] bg-white/[0.035] px-4 py-3 text-sm leading-6 text-[var(--color-text-secondary)] backdrop-blur-sm">
-          <span className="text-[var(--color-text-primary)]">Proof line:</span> Static-first portfolio · RAG architecture · Three.js visual layer · Data-driven content · Local AI demo path.
+          <Cpu className="mr-2 inline size-4 text-[var(--color-accent-blue)]" /><span className="text-[var(--color-text-primary)]">Proof line:</span> Static-first portfolio · RAG architecture · Three.js visual layer · Data-driven content · Local AI demo path.
         </div>
       </div>
 
