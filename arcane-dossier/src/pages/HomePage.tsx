@@ -4,6 +4,7 @@ import { SectionShell } from "../layout/SectionShell";
 import { HeroSection } from "../sections/HeroSection";
 import { ProjectsQuestLog } from "../sections/ProjectsQuestLog";
 import { ResumeSnapshot } from "../sections/ResumeSnapshot";
+import { SkillTreeSection } from "../sections/SkillTreeSection";
 
 const capabilities = [
   "AI / LLM / RAG systems",
@@ -32,6 +33,7 @@ export function HomePage() {
         </div>
       </SectionShell>
 
+      <SkillTreeSection />
       <ProjectsQuestLog />
       <ResumeSnapshot />
     </PageShell>

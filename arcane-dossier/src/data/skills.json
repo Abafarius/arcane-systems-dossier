@@ -1,6 +1,250 @@
 [
-  { "id": "rag", "name": "RAG", "category": "ai-llm", "level": "strong" },
-  { "id": "django", "name": "Django REST Framework", "category": "backend", "level": "working" },
-  { "id": "react", "name": "React", "category": "frontend", "level": "strong" },
-  { "id": "three", "name": "Three.js / React Three Fiber", "category": "frontend", "level": "foundation" }
+  {
+    "id": "rag",
+    "name": "RAG Systems",
+    "category": "ai-llm",
+    "level": "strong",
+    "description": "Designing retrieval-first assistants that answer from a controlled knowledge base instead of improvising unsupported claims.",
+    "relatedProjects": ["ai-telegram-assistant", "arcane-systems-dossier"],
+    "tags": ["retrieval", "grounded answers", "citations", "knowledge base"],
+    "proofExamples": [
+      "AI Telegram Assistant uses company knowledge as the source of truth.",
+      "Portfolio Oracle is designed with static retrieval fallback before LLM generation."
+    ]
+  },
+  {
+    "id": "ollama",
+    "name": "Ollama / Local LLM",
+    "category": "ai-llm",
+    "level": "working",
+    "description": "Running local models for private demos, internal assistants and offline-friendly AI experiments.",
+    "relatedProjects": ["ai-telegram-assistant", "arcane-systems-dossier"],
+    "tags": ["local AI", "privacy", "model adapters", "offline demo"],
+    "proofExamples": [
+      "AI Telegram Assistant architecture includes Ollama/local model support.",
+      "Portfolio Oracle has a planned local Ollama provider adapter."
+    ]
+  },
+  {
+    "id": "chroma-db",
+    "name": "ChromaDB / Vector Store",
+    "category": "ai-llm",
+    "level": "working",
+    "description": "Using vector storage concepts for semantic search and document retrieval in AI assistant pipelines.",
+    "relatedProjects": ["ai-telegram-assistant"],
+    "tags": ["embeddings", "semantic search", "retrieval"],
+    "proofExamples": ["AI Telegram Assistant uses ChromaDB as part of the RAG pipeline."]
+  },
+  {
+    "id": "prompt-engineering",
+    "name": "Prompt Engineering",
+    "category": "ai-llm",
+    "level": "strong",
+    "description": "Building constrained prompts with context, refusal rules and task-specific answer formats.",
+    "relatedProjects": ["ai-telegram-assistant", "arcane-systems-dossier"],
+    "tags": ["system prompts", "grounding", "answer policy"],
+    "proofExamples": [
+      "Portfolio Oracle has explicit no-hallucination and source-only answer rules.",
+      "Telegram assistant is designed to avoid answers outside the knowledge base."
+    ]
+  },
+  {
+    "id": "python-backend",
+    "name": "Python Backend",
+    "category": "backend",
+    "level": "strong",
+    "description": "Building backend services, automation workflows and AI pipeline logic in Python.",
+    "relatedProjects": ["ai-telegram-assistant", "pbi-monitor", "cbdc-research"],
+    "tags": ["services", "automation", "data processing"],
+    "proofExamples": [
+      "AI Telegram Assistant backend is Python-based.",
+      "CBDC research used Python data analysis and econometric workflow."
+    ]
+  },
+  {
+    "id": "django-drf",
+    "name": "Django REST Framework",
+    "category": "backend",
+    "level": "working",
+    "description": "Building API-first backends with models, serializers, authentication and role-aware endpoints.",
+    "relatedProjects": ["fincat"],
+    "tags": ["REST API", "serializers", "CRUD", "permissions"],
+    "proofExamples": [
+      "FinCat uses DRF endpoints for financial organization catalog CRUD.",
+      "FinCat includes JWT authentication and admin/user role separation."
+    ]
+  },
+  {
+    "id": "postgresql",
+    "name": "PostgreSQL",
+    "category": "backend",
+    "level": "working",
+    "description": "Designing relational persistence for catalogs, assistant metadata and structured application data.",
+    "relatedProjects": ["fincat", "ai-telegram-assistant"],
+    "tags": ["database", "schema", "persistence"],
+    "proofExamples": [
+      "FinCat runs with PostgreSQL in Docker.",
+      "AI Telegram Assistant architecture includes PostgreSQL."
+    ]
+  },
+  {
+    "id": "api-design",
+    "name": "API Design",
+    "category": "backend",
+    "level": "strong",
+    "description": "Designing endpoints around actual user roles, frontend needs and maintainable resource boundaries.",
+    "relatedProjects": ["fincat", "abafar-convertor", "ai-telegram-assistant"],
+    "tags": ["REST", "auth", "resource modeling", "integration"],
+    "proofExamples": [
+      "FinCat separates catalog access and admin management flows.",
+      "AbafarConvertor separates client experience from backend conversion service."
+    ]
+  },
+  {
+    "id": "react",
+    "name": "React",
+    "category": "frontend",
+    "level": "strong",
+    "description": "Building modular, component-driven interfaces with data separated from rendering logic.",
+    "relatedProjects": ["learning-clicker", "arcane-systems-dossier"],
+    "tags": ["components", "state", "routing", "static-first"],
+    "proofExamples": [
+      "Learning Clicker uses React for progression, events and upgrade UI.",
+      "Arcane Systems Dossier uses React + TypeScript with feature-based modules."
+    ]
+  },
+  {
+    "id": "typescript",
+    "name": "TypeScript",
+    "category": "frontend",
+    "level": "working",
+    "description": "Using explicit types to keep portfolio data, project models and feature contracts maintainable.",
+    "relatedProjects": ["arcane-systems-dossier"],
+    "tags": ["types", "models", "maintainability"],
+    "proofExamples": ["Arcane Systems Dossier uses typed data models for projects, skills and AI providers."]
+  },
+  {
+    "id": "vue-nuxt",
+    "name": "Vue / Nuxt 3",
+    "category": "frontend",
+    "level": "working",
+    "description": "Building frontend pages and admin flows with Nuxt 3 for full-stack catalog products.",
+    "relatedProjects": ["fincat"],
+    "tags": ["Nuxt 3", "Vue 3", "forms", "catalog UI"],
+    "proofExamples": ["FinCat frontend is implemented with Nuxt 3 and Vue 3."
+    ]
+  },
+  {
+    "id": "tailwind-design-system",
+    "name": "Tailwind + Design System",
+    "category": "frontend",
+    "level": "working",
+    "description": "Creating reusable UI components backed by tokens instead of one-off styling.",
+    "relatedProjects": ["arcane-systems-dossier"],
+    "tags": ["tokens", "themes", "UI system", "responsive design"],
+    "proofExamples": ["Arcane Systems Dossier uses tokens for colors, radii, spacing and theme direction."]
+  },
+  {
+    "id": "three-js",
+    "name": "Three.js / React Three Fiber",
+    "category": "frontend",
+    "level": "foundation",
+    "description": "Creative 3D visualization direction for hero scenes, constellations and interactive data maps.",
+    "relatedProjects": ["arcane-systems-dossier"],
+    "tags": ["3D", "creative coding", "visualization"],
+    "proofExamples": ["The portfolio architecture reserves isolated Three.js modules for hero and music constellation scenes."]
+  },
+  {
+    "id": "docker",
+    "name": "Docker",
+    "category": "devops",
+    "level": "working",
+    "description": "Packaging frontend, backend and database services into reproducible local environments.",
+    "relatedProjects": ["fincat"],
+    "tags": ["containers", "compose", "reproducibility"],
+    "proofExamples": ["FinCat includes Docker and Docker Compose packaging for frontend, backend and database."
+    ]
+  },
+  {
+    "id": "deployment-static",
+    "name": "Static Deployment",
+    "category": "devops",
+    "level": "working",
+    "description": "Designing web apps that can be deployed as static files without a permanently running backend.",
+    "relatedProjects": ["arcane-systems-dossier"],
+    "tags": ["Vite", "GitHub Pages", "static-first"],
+    "proofExamples": ["Arcane Systems Dossier is built around static-first deployment and progressive AI enhancement."]
+  },
+  {
+    "id": "ols-econometrics",
+    "name": "OLS / Econometrics",
+    "category": "data-finance",
+    "level": "working",
+    "description": "Applying regression analysis, diagnostics and scenario interpretation to macro-financial questions.",
+    "relatedProjects": ["cbdc-research"],
+    "tags": ["OLS", "diagnostics", "macro", "scenario analysis"],
+    "proofExamples": ["CBDC research used OLS, robust standard errors, VIF and residual diagnostics."
+    ]
+  },
+  {
+    "id": "financial-analytics",
+    "name": "Financial Analytics",
+    "category": "data-finance",
+    "level": "strong",
+    "description": "Connecting technical analysis with financial systems, central banking context and product implications.",
+    "relatedProjects": ["cbdc-research", "fincat", "pbi-monitor"],
+    "tags": ["fintech", "CBDC", "dashboards", "financial organizations"],
+    "proofExamples": [
+      "Master's background in Applied Finance / Financial Analytics.",
+      "FinCat and PBI Monitor are connected to financial/business analytics workflows."
+    ]
+  },
+  {
+    "id": "dashboard-monitoring",
+    "name": "Dashboard Monitoring",
+    "category": "data-finance",
+    "level": "working",
+    "description": "Designing workflows to track report freshness, update status and business analytics reliability.",
+    "relatedProjects": ["pbi-monitor"],
+    "tags": ["Power BI", "monitoring", "workflow", "business analytics"],
+    "proofExamples": ["PBI Monitor automates daily Power BI dashboard refresh control."
+    ]
+  },
+  {
+    "id": "product-thinking",
+    "name": "Product Thinking",
+    "category": "product-ux",
+    "level": "strong",
+    "description": "Turning workflow pain points into focused tools with clear user value and future extension paths.",
+    "relatedProjects": ["pbi-monitor", "fincat", "arcane-systems-dossier"],
+    "tags": ["MVP", "workflow", "internal tools", "positioning"],
+    "proofExamples": [
+      "PBI Monitor is positioned as a practical internal productivity product, not just a script.",
+      "Arcane Systems Dossier turns a resume into a product-like interactive system."
+    ]
+  },
+  {
+    "id": "game-design-ui",
+    "name": "Game UI / Progression Design",
+    "category": "product-ux",
+    "level": "working",
+    "description": "Designing interactive progression loops, upgrades, events and feedback systems for engaging interfaces.",
+    "relatedProjects": ["learning-clicker"],
+    "tags": ["progression", "events", "prestige", "frontend game design"],
+    "proofExamples": ["Learning Clicker includes upgrades, eras, events, prestige and achievement-style interactions."
+    ]
+  },
+  {
+    "id": "research-methodology",
+    "name": "Research Methodology",
+    "category": "research",
+    "level": "strong",
+    "description": "Structuring hypotheses, methods, limitations and conclusions around evidence instead of vague claims.",
+    "relatedProjects": ["cbdc-research", "arcane-systems-dossier"],
+    "tags": ["hypothesis", "methods", "limitations", "evidence"],
+    "proofExamples": [
+      "CBDC thesis used defined variables, diagnostics and scenario analysis.",
+      "Portfolio case studies are structured around problem, solution, role and result."
+    ]
+  }
 ]

@@ -1,49 +1,117 @@
 {
   "name": "Galymzhan Yessimbek",
   "alternateName": "Есимбек Галымжан",
-  "title": "AI / LLM Engineer · Full-stack Developer · Creative Technologist",
+  "title": "Business Analyst at BCC · AI / LLM Engineer · Full-stack Developer · Creative Technologist",
   "location": "Almaty, Kazakhstan",
-  "summary": "I build AI-powered systems, interactive data experiences and full-stack products at the intersection of technology, finance and creative engineering. My background combines Cyberphysics, Financial Analytics, backend/API development, RAG systems, local LLM experiments and interactive frontend products.",
+  "summary": "I build AI-powered systems, internal automation tools, interactive data experiences and full-stack products at the intersection of technology, finance and creative engineering. My background combines Cyberphysics, Financial Analytics, banking/customer experience, backend/API development, RAG systems, local LLM experiments and interactive frontend products.",
   "positioning": [
     "AI / LLM / RAG systems",
+    "Banking CX and virtual assistant improvement",
     "Internal tools and workflow automation",
     "Full-stack product development",
     "Backend architecture and API design",
-    "Interactive frontend and creative coding",
     "Financial analytics and CBDC research"
   ],
   "roles": [
+    "Business Analyst / Digital CX Analyst",
     "AI / LLM Engineer",
     "Full-stack Developer",
     "Backend Developer",
-    "Frontend Developer",
     "Internal Tools / Automation Developer",
     "Data / Financial Analytics Specialist",
     "Creative Technologist"
   ],
   "highlights": [
+    "Currently working at Bank CenterCredit as a Business Analyst focused on digital customer experience and virtual assistant quality improvement.",
     "Built PBI Monitor: a working desktop/internal automation tool for daily Power BI dashboard refresh checks and business analytics workflows.",
+    "Developed a full-stack internal data catalog during an internship at the Agency of the Republic of Kazakhstan for Regulation and Development of Financial Market using Django, Vue.js and PostgreSQL.",
+    "Published a CBDC article in Банки Казахстана №3, 2025: Central Bank Digital Currencies (CBDC): evolution, comparative analysis and prospects for financial systems.",
+    "Won DLD Hackathon 2022 at KIMEP University with a solution for a MOST company case.",
     "Built a local-LLM/RAG concept for a Telegram-based company knowledge assistant using Ollama, ChromaDB, PostgreSQL and Python.",
     "Delivered FinCat: a full-stack financial organizations catalog with Django REST Framework, Nuxt 3, JWT auth, roles, CRUD and Dockerized PostgreSQL.",
     "Built AbafarConvertor: a YouTube-to-MP3 utility with Node/Express backend and Expo/React Native client structure.",
     "Completed CBDC research using OLS regression, econometrics and macroeconomic indicators with Digital Tenge context."
   ],
+  "experience": [
+    {
+      "role": "Business Analyst",
+      "organization": "Bank CenterCredit",
+      "location": "Almaty, Kazakhstan",
+      "period": "January 2026 — Present",
+      "type": "Full-time",
+      "summary": "Business analyst role focused on improving the virtual assistant Aibek, analyzing customer conversations, refining dialogue quality and supporting digital customer support products.",
+      "highlights": [
+        "Moderate and continuously improve the virtual assistant Aibek by analyzing customer conversations and refining response quality.",
+        "Review and optimize response logic and dialogue scenarios to improve accuracy, relevance and customer satisfaction.",
+        "Analyze chat data and recurring customer inquiries to identify gaps in digital customer journeys.",
+        "Support the quality and reliability of digital customer support products across banking channels."
+      ],
+      "relatedProjects": [
+        "pbi-monitor",
+        "ai-telegram-assistant"
+      ]
+    },
+    {
+      "role": "Call Center Specialist",
+      "organization": "Bank CenterCredit",
+      "location": "Almaty, Kazakhstan",
+      "period": "November 2025 — January 2026",
+      "type": "Full-time",
+      "summary": "Foreign exchange call center specialist supporting business clients with FX contracts, international payments and currency conversions.",
+      "highlights": [
+        "Guided business clients through registration of foreign exchange contracts.",
+        "Supported processing of international payments and currency conversion requests.",
+        "Handled complex inquiries in fast-paced banking support scenarios."
+      ],
+      "relatedProjects": []
+    },
+    {
+      "role": "Intern Developer",
+      "organization": "The Agency of the Republic of Kazakhstan for Regulation and Development of Financial Market",
+      "location": "Almaty, Kazakhstan",
+      "period": "September 2025 — November 2025",
+      "type": "Internship",
+      "summary": "Developed a full-stack internal data catalog to improve data accessibility and transparency inside the organization.",
+      "highlights": [
+        "Built backend functionality using Django and Python.",
+        "Built frontend interface using Vue.js.",
+        "Designed and implemented PostgreSQL database architecture for catalog data management."
+      ],
+      "relatedProjects": [
+        "fincat"
+      ]
+    },
+    {
+      "role": "Intern",
+      "organization": "Kazakh-British Technical University",
+      "location": "Almaty, Kazakhstan",
+      "period": "June 2022",
+      "type": "Internship",
+      "summary": "Internship at the KBTU Nanolaboratory with practical exposure to measurement equipment and sample analysis.",
+      "highlights": [
+        "Adjusted an X-ray complex.",
+        "Analyzed samples using an infrared spectrometer."
+      ],
+      "relatedProjects": []
+    }
+  ],
   "education": [
     {
-      "degree": "Master",
-      "field": "Applied Finance / Financial Analytics",
+      "degree": "Master of Business Administration (MBA)",
+      "field": "Finance / Applied Finance / Financial Analytics",
       "institution": "Narxoz University / Narxoz Business School",
-      "period": "Completed 2025",
+      "period": "August 2023 — July 2025",
       "highlights": [
+        "National Bank of Kazakhstan sponsored master's program context.",
         "Research focus: Central Bank Digital Currency and macroeconomic indicators.",
         "Methods: OLS regression, econometrics, scenario analysis, Python-based analytics."
       ]
     },
     {
-      "degree": "Bachelor",
-      "field": "Cyberphysics",
+      "degree": "Bachelor's degree",
+      "field": "Physics / Cyberphysics background",
       "institution": "Al-Farabi Kazakh National University",
-      "period": "Completed",
+      "period": "September 2019 — July 2023",
       "highlights": [
         "Technical foundation across programming, data, physics and analytical modeling.",
         "Relevant areas: machine learning, artificial intelligence, big data and computational thinking."
@@ -51,10 +119,11 @@
     },
     {
       "degree": "Software Development Program",
-      "field": "Full-stack / Software Development",
-      "institution": "IT STEP Academy",
-      "period": "Completed 2025",
+      "field": "Computer Software Development",
+      "institution": "IT STEP Computer Academy",
+      "period": "November 2023 — July 2025",
       "highlights": [
+        "Completed software development training with excellent results across programming, web development, Docker, Django, Python, React Native, database theory, ASP.NET and React.",
         "Built a React-based educational game/product as a diploma project.",
         "Focused on frontend architecture, backend integration and product implementation."
       ]
@@ -71,7 +140,8 @@
         "Embeddings",
         "Prompt engineering",
         "Provider abstraction",
-        "Grounded answers"
+        "Grounded answers",
+        "Virtual assistant quality improvement"
       ]
     },
     {
@@ -84,6 +154,7 @@
         "Django REST Framework",
         "FastAPI",
         "PostgreSQL",
+        "SQL",
         "JWT",
         "Docker",
         "API design"
@@ -94,12 +165,14 @@
       "items": [
         "React",
         "TypeScript",
+        "JavaScript",
         "Vue",
         "Nuxt 3",
         "Tailwind CSS",
         "Framer Motion",
         "Three.js",
-        "React Three Fiber"
+        "React Three Fiber",
+        "React Native / Expo"
       ]
     },
     {
@@ -111,7 +184,12 @@
         "OLS",
         "Econometrics",
         "Macroeconomic analysis",
-        "Python analytics"
+        "Python analytics",
+        "pandas",
+        "numpy",
+        "scikit-learn",
+        "Power BI",
+        "Excel"
       ]
     },
     {
@@ -123,7 +201,8 @@
         "Interactive storytelling",
         "Data visualization",
         "Technical product thinking",
-        "Creative technology"
+        "Creative technology",
+        "Customer experience analysis"
       ]
     }
   ],
@@ -155,40 +234,97 @@
       ]
     }
   ],
+  "publications": [
+    {
+      "title": "Цифровые валюты центральных банков (CBDC): эволюция, сравнительный анализ и перспективы для финансовых систем",
+      "publisher": "Банки Казахстана",
+      "issue": "№3, 2025",
+      "date": "May 2025",
+      "role": "Author",
+      "description": "Analytical article on CBDC evolution, design, operational challenges, privacy concerns and implications for financial systems.",
+      "url": "https://abrk.kz/wp-content/uploads/2025/04/3-25-%D0%91%D0%B0%D0%BD%D0%BA%D0%B8-%D0%9A%D0%B0%D0%B7%D0%B0%D1%85%D1%81%D1%82%D0%B0%D0%BD%D0%B0.pdf",
+      "tags": [
+        "CBDC",
+        "Financial systems",
+        "Central banking",
+        "Digital currency"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Duolingo English Test",
+      "issuer": "Duolingo English Test",
+      "date": "November 19, 2024",
+      "summary": "Overall score 115, CEFR B2. Subscores: Speaking 110, Writing 115, Reading 115, Listening 120.",
+      "url": "https://certs.duolingo.com/ju7bm082pcssib11",
+      "tags": [
+        "English",
+        "B2",
+        "DET 115"
+      ]
+    },
+    {
+      "title": "Computer Software Development",
+      "issuer": "IT STEP Computer Academy",
+      "date": "July 2025",
+      "summary": "Software development program completed from November 2023 to July 2025 with strong results across programming, web development, Python, Django, Docker, React Native, ASP.NET and React.",
+      "url": "",
+      "tags": [
+        "Software Development",
+        "Full-stack",
+        "IT STEP"
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "DLD Hackathon 2022 Winner",
+      "issuer": "AIESEC in Almaty / Developing Leadership Day / MOST company case",
+      "date": "2022",
+      "summary": "Winner certificate for solving a case from MOST company at DLD Hackathon 2022 at KIMEP University.",
+      "tags": [
+        "Hackathon",
+        "Winner",
+        "KIMEP",
+        "MOST"
+      ]
+    }
+  ],
   "languages": [
     {
       "name": "Kazakh",
-      "level": "Professional / native-level working proficiency"
+      "level": "Full professional / fluent"
     },
     {
       "name": "Russian",
-      "level": "Professional / native-level working proficiency"
+      "level": "Native or bilingual"
     },
     {
       "name": "English",
-      "level": "B2 / Duolingo English Test 115"
+      "level": "Professional working proficiency · B2 · Duolingo English Test 115"
     }
   ],
   "contacts": [
     {
       "label": "Email",
-      "value": "Add email in resume.json",
-      "href": ""
+      "value": "galymzhanyessimbek@gmail.com",
+      "href": "mailto:galymzhanyessimbek@gmail.com"
     },
     {
       "label": "GitHub",
-      "value": "Add GitHub URL in resume.json",
-      "href": ""
+      "value": "github.com/Abafarius",
+      "href": "https://github.com/Abafarius"
     },
     {
       "label": "LinkedIn",
-      "value": "Add LinkedIn URL in resume.json",
-      "href": ""
+      "value": "linkedin.com/in/galymzhan-yessimbek-618bb6235",
+      "href": "https://www.linkedin.com/in/galymzhan-yessimbek-618bb6235/"
     },
     {
       "label": "Telegram",
-      "value": "Add Telegram username in resume.json",
-      "href": ""
+      "value": "@Abafarius",
+      "href": "https://t.me/Abafarius"
     }
   ]
 }

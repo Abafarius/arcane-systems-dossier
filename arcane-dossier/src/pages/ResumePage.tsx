@@ -10,6 +10,17 @@ type Contact = {
   href: string;
 };
 
+type ExperienceItem = {
+  role: string;
+  organization: string;
+  location: string;
+  period: string;
+  type: string;
+  summary: string;
+  highlights: string[];
+  relatedProjects: string[];
+};
+
 type EducationItem = {
   degree: string;
   field: string;
@@ -30,6 +41,34 @@ type ResearchItem = {
   keywords: string[];
 };
 
+type PublicationItem = {
+  title: string;
+  publisher: string;
+  issue: string;
+  date: string;
+  role: string;
+  description: string;
+  url: string;
+  tags: string[];
+};
+
+type CertificationItem = {
+  title: string;
+  issuer: string;
+  date: string;
+  summary: string;
+  url: string;
+  tags: string[];
+};
+
+type AwardItem = {
+  title: string;
+  issuer: string;
+  date: string;
+  summary: string;
+  tags: string[];
+};
+
 type LanguageItem = {
   name: string;
   level: string;
@@ -44,10 +83,14 @@ type ResumeData = {
   positioning: string[];
   roles: string[];
   highlights: string[];
+  experience: ExperienceItem[];
   education: EducationItem[];
   skillGroups: SkillGroup[];
   featuredProjects: string[];
   research: ResearchItem[];
+  publications: PublicationItem[];
+  certifications: CertificationItem[];
+  awards: AwardItem[];
   languages: LanguageItem[];
   contacts: Contact[];
 };
@@ -75,6 +118,18 @@ function ResumeSectionTitle({ children }: { children: string }) {
   );
 }
 
+function TagList({ tags, tone = "neutral" }: { tags: string[]; tone?: "neutral" | "gold" | "violet" | "blue" }) {
+  return (
+    <div className="flex flex-wrap gap-2">
+      {tags.map((tag) => (
+        <Badge key={tag} tone={tone}>
+          {tag}
+        </Badge>
+      ))}
+    </div>
+  );
+}
+
 function ContactLink({ contact }: { contact: Contact }) {
   if (!contact.href) {
     return (
@@ -85,15 +140,34 @@ function ContactLink({ contact }: { contact: Contact }) {
     );
   }
 
+  const external = contact.href.startsWith("http");
+
   return (
     <a
       href={contact.href}
       className="block rounded-2xl border border-[var(--color-border)] bg-white/[0.04] p-4 transition hover:border-[rgba(216,168,79,0.45)] hover:bg-white/[0.07]"
-      target="_blank"
-      rel="noreferrer"
+      target={external ? "_blank" : undefined}
+      rel={external ? "noreferrer" : undefined}
     >
       <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-accent-gold)]">{contact.label}</p>
       <p className="mt-2 text-sm text-[var(--color-text-primary)]">{contact.value}</p>
+    </a>
+  );
+}
+
+function OptionalExternalLink({ href, children }: { href: string; children: string }) {
+  if (!href) {
+    return null;
+  }
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="mt-4 inline-flex text-sm font-medium text-[var(--color-accent-blue)] transition hover:text-[var(--color-accent-gold)]"
+    >
+      {children} →
     </a>
   );
 }
@@ -104,7 +178,7 @@ export function ResumePage() {
       <SectionShell
         eyebrow="Resume"
         title="Recruiter-friendly technical profile"
-        description="A clean resume view that keeps the portfolio ATS-friendly: summary, role fit, education, skills, research, languages and contacts."
+        description="A clean resume view that keeps the portfolio ATS-friendly: summary, career timeline, role fit, education, skills, research, publications, awards, languages and contacts."
       >
         <div className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
           <Card className="p-7">
@@ -137,10 +211,69 @@ export function ResumePage() {
           </Card>
         </div>
 
-        <div className="mt-5 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="mt-5 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+          <Card className="p-7">
+            <ResumeSectionTitle>Career timeline</ResumeSectionTitle>
+            <div className="space-y-7">
+              {resumeData.experience.map((item) => (
+                <div key={`${item.organization}-${item.role}-${item.period}`} className="border-l border-[rgba(216,168,79,0.35)] pl-5">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Badge tone="gold">{item.type}</Badge>
+                    <Badge>{item.period}</Badge>
+                  </div>
+                  <h4 className="mt-3 text-lg font-semibold text-[var(--color-text-primary)]">{item.role}</h4>
+                  <p className="mt-1 text-sm text-[var(--color-accent-blue)]">{item.organization}</p>
+                  <p className="mt-1 text-sm text-[var(--color-text-secondary)]">{item.location}</p>
+                  <p className="mt-4 leading-7 text-[var(--color-text-secondary)]">{item.summary}</p>
+                  <div className="mt-4">
+                    <BulletList items={item.highlights} />
+                  </div>
+                  {item.relatedProjects.length > 0 && (
+                    <div className="mt-4">
+                      <TagList tags={item.relatedProjects} tone="blue" />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </Card>
+
           <Card className="p-7">
             <ResumeSectionTitle>Proof highlights</ResumeSectionTitle>
             <BulletList items={resumeData.highlights} />
+          </Card>
+        </div>
+
+        <div className="mt-5 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+          <Card className="p-7">
+            <ResumeSectionTitle>Publications & research</ResumeSectionTitle>
+            <div className="space-y-7">
+              {resumeData.publications.map((item) => (
+                <div key={item.title}>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge tone="gold">{item.publisher}</Badge>
+                    <Badge>{item.issue}</Badge>
+                    <Badge>{item.date}</Badge>
+                  </div>
+                  <h4 className="mt-3 text-lg font-semibold text-[var(--color-text-primary)]">{item.title}</h4>
+                  <p className="mt-3 leading-7 text-[var(--color-text-secondary)]">{item.description}</p>
+                  <div className="mt-4">
+                    <TagList tags={item.tags} tone="blue" />
+                  </div>
+                  <OptionalExternalLink href={item.url}>Open publication</OptionalExternalLink>
+                </div>
+              ))}
+
+              {resumeData.research.map((item) => (
+                <div key={item.title} className="border-t border-[var(--color-border)] pt-6">
+                  <h4 className="text-lg font-semibold text-[var(--color-text-primary)]">{item.title}</h4>
+                  <p className="mt-3 leading-7 text-[var(--color-text-secondary)]">{item.description}</p>
+                  <div className="mt-4">
+                    <TagList tags={[...item.methods, ...item.keywords]} tone="blue" />
+                  </div>
+                </div>
+              ))}
+            </div>
           </Card>
 
           <Card className="p-7">
@@ -151,11 +284,7 @@ export function ResumePage() {
                   <h4 className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent-gold)]">
                     {group.group}
                   </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {group.items.map((item) => (
-                      <Badge key={item}>{item}</Badge>
-                    ))}
-                  </div>
+                  <TagList tags={group.items} />
                 </div>
               ))}
             </div>
@@ -181,44 +310,66 @@ export function ResumePage() {
             </div>
           </Card>
 
-          <Card className="p-7">
-            <ResumeSectionTitle>Languages</ResumeSectionTitle>
-            <div className="space-y-4">
-              {resumeData.languages.map((language) => (
-                <div key={language.name}>
-                  <p className="font-medium text-[var(--color-text-primary)]">{language.name}</p>
-                  <p className="mt-1 text-sm text-[var(--color-text-secondary)]">{language.level}</p>
-                </div>
-              ))}
-            </div>
-          </Card>
+          <div className="grid gap-5">
+            <Card className="p-7">
+              <ResumeSectionTitle>Languages</ResumeSectionTitle>
+              <div className="space-y-4">
+                {resumeData.languages.map((language) => (
+                  <div key={language.name}>
+                    <p className="font-medium text-[var(--color-text-primary)]">{language.name}</p>
+                    <p className="mt-1 text-sm text-[var(--color-text-secondary)]">{language.level}</p>
+                  </div>
+                ))}
+              </div>
+            </Card>
+
+            <Card className="p-7">
+              <ResumeSectionTitle>Contact</ResumeSectionTitle>
+              <div className="grid gap-3">
+                {resumeData.contacts.map((contact) => (
+                  <ContactLink key={contact.label} contact={contact} />
+                ))}
+              </div>
+            </Card>
+          </div>
         </div>
 
-        <div className="mt-5 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="mt-5 grid gap-5 lg:grid-cols-2">
           <Card className="p-7">
-            <ResumeSectionTitle>Research</ResumeSectionTitle>
+            <ResumeSectionTitle>Certifications</ResumeSectionTitle>
             <div className="space-y-6">
-              {resumeData.research.map((item) => (
+              {resumeData.certifications.map((item) => (
                 <div key={item.title}>
-                  <h4 className="text-lg font-semibold text-[var(--color-text-primary)]">{item.title}</h4>
-                  <p className="mt-3 leading-7 text-[var(--color-text-secondary)]">{item.description}</p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {[...item.methods, ...item.keywords].map((tag) => (
-                      <Badge key={tag} tone="blue">
-                        {tag}
-                      </Badge>
-                    ))}
+                  <div className="flex flex-wrap gap-2">
+                    <Badge tone="gold">{item.issuer}</Badge>
+                    <Badge>{item.date}</Badge>
                   </div>
+                  <h4 className="mt-3 text-lg font-semibold text-[var(--color-text-primary)]">{item.title}</h4>
+                  <p className="mt-3 leading-7 text-[var(--color-text-secondary)]">{item.summary}</p>
+                  <div className="mt-4">
+                    <TagList tags={item.tags} tone="blue" />
+                  </div>
+                  <OptionalExternalLink href={item.url}>Open certificate</OptionalExternalLink>
                 </div>
               ))}
             </div>
           </Card>
 
           <Card className="p-7">
-            <ResumeSectionTitle>Contact</ResumeSectionTitle>
-            <div className="grid gap-3">
-              {resumeData.contacts.map((contact) => (
-                <ContactLink key={contact.label} contact={contact} />
+            <ResumeSectionTitle>Awards</ResumeSectionTitle>
+            <div className="space-y-6">
+              {resumeData.awards.map((item) => (
+                <div key={item.title}>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge tone="gold">{item.issuer}</Badge>
+                    <Badge>{item.date}</Badge>
+                  </div>
+                  <h4 className="mt-3 text-lg font-semibold text-[var(--color-text-primary)]">{item.title}</h4>
+                  <p className="mt-3 leading-7 text-[var(--color-text-secondary)]">{item.summary}</p>
+                  <div className="mt-4">
+                    <TagList tags={item.tags} tone="violet" />
+                  </div>
+                </div>
               ))}
             </div>
           </Card>

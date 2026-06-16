@@ -10,7 +10,7 @@ interface PageShellProps {
 
 export function PageShell({ children }: PageShellProps) {
   return (
-    <div className="min-h-screen overflow-hidden">
+    <div className="min-h-screen overflow-hidden bg-[var(--color-background)]">
       <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[rgba(7,8,18,0.76)] backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <Link to="/" className="group flex items-center gap-3" aria-label="Go to home page">

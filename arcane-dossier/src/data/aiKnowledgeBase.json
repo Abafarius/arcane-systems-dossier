@@ -48,5 +48,71 @@
       ],
       "priority": 3
     }
+  },
+  {
+    "id": "kb-current-experience-bcc",
+    "title": "Current Experience: Bank CenterCredit",
+    "type": "experience",
+    "content": "Galymzhan Yessimbek currently works at Bank CenterCredit as a Business Analyst. His work focuses on improving the virtual assistant Aibek, analyzing customer conversations, reviewing response logic and dialogue scenarios, identifying recurring customer questions and supporting the quality of digital customer support products.",
+    "metadata": {
+      "tags": [
+        "Bank CenterCredit",
+        "Business Analyst",
+        "virtual assistant",
+        "CX",
+        "banking"
+      ],
+      "priority": 8
+    }
+  },
+  {
+    "id": "kb-ardfm-internship",
+    "title": "Intern Developer: ARDFM",
+    "type": "experience",
+    "content": "During his internship at the Agency of the Republic of Kazakhstan for Regulation and Development of Financial Market, Galymzhan developed a full-stack internal data catalog using Django/Python for the backend, Vue.js for the frontend and PostgreSQL for the database architecture.",
+    "metadata": {
+      "tags": [
+        "ARDFM",
+        "intern developer",
+        "Django",
+        "Vue",
+        "PostgreSQL",
+        "data catalog"
+      ],
+      "priority": 7
+    }
+  },
+  {
+    "id": "kb-publication-cbdc-banks-kazakhstan-2025",
+    "title": "Publication: CBDC article in Банки Казахстана №3, 2025",
+    "type": "publication",
+    "content": "Galymzhan authored the article 'Цифровые валюты центральных банков (CBDC): эволюция, сравнительный анализ и перспективы для финансовых систем', published in Банки Казахстана №3, 2025. The article discusses CBDC evolution, design, operational challenges, privacy risks and implications for financial systems.",
+    "metadata": {
+      "tags": [
+        "CBDC",
+        "publication",
+        "Банки Казахстана",
+        "Financial systems",
+        "Central banking"
+      ],
+      "priority": 8
+    }
+  },
+  {
+    "id": "kb-certifications-awards",
+    "title": "Certifications and Awards",
+    "type": "certification",
+    "content": "Galymzhan has a Duolingo English Test certificate with an overall score of 115, CEFR B2. He completed the Computer Software Development program at IT STEP Computer Academy. He also won DLD Hackathon 2022 at KIMEP University with a solution for a MOST company case.",
+    "metadata": {
+      "tags": [
+        "Duolingo English Test",
+        "B2",
+        "IT STEP",
+        "Hackathon",
+        "KIMEP",
+        "MOST"
+      ],
+      "priority": 6
+    }
   }
 ]
