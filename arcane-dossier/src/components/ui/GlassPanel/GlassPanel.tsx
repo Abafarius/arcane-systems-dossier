@@ -1,22 +1,15 @@
 import type { HTMLAttributes, ReactNode } from "react";
-import { cn } from "../../../lib/cn";
+import { InteractiveSurface } from "../InteractiveSurface";
 
 interface GlassPanelProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   interactive?: boolean;
 }
 
-export function GlassPanel({ children, className, interactive = false, ...props }: GlassPanelProps) {
+export function GlassPanel({ children, interactive = false, ...props }: GlassPanelProps) {
   return (
-    <div
-      className={cn(
-        "glass-panel rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-6 backdrop-blur-xl",
-        interactive && "interactive-lift",
-        className,
-      )}
-      {...props}
-    >
+    <InteractiveSurface as="div" variant="glass" interactive={interactive} {...props}>
       {children}
-    </div>
+    </InteractiveSurface>
   );
 }

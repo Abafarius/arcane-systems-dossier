@@ -1,14 +1,14 @@
 import type { HTMLAttributes, ReactNode } from "react";
-import { cn } from "../../../lib/cn";
+import { InteractiveSurface } from "../InteractiveSurface";
 
 interface AnimatedBorderProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
 }
 
-export function AnimatedBorder({ children, className, ...props }: AnimatedBorderProps) {
+export function AnimatedBorder({ children, ...props }: AnimatedBorderProps) {
   return (
-    <div className={cn("gradient-border", className)} {...props}>
+    <InteractiveSurface as="div" variant="arcane" {...props}>
       {children}
-    </div>
+    </InteractiveSurface>
   );
 }

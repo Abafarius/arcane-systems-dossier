@@ -17,11 +17,11 @@ export function SectionShell({ eyebrow, title, description, children, id, classN
       <Reveal>
         <div className="mb-10 max-w-3xl">
           {eyebrow ? (
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-accent-gold)]">
+            <p className="kicker-label mb-3 text-[var(--color-accent-gold)]">
               {eyebrow}
             </p>
           ) : null}
-          <h2 className="text-3xl font-semibold tracking-[-0.04em] text-[var(--color-text-primary)] md:text-5xl">
+          <h2 className="font-heading text-3xl font-bold text-[var(--color-text-primary)] md:text-5xl">
             {title}
           </h2>
           {description ? (

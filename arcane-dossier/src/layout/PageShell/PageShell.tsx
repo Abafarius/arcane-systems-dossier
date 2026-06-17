@@ -23,10 +23,10 @@ export function PageShell({ children }: PageShellProps) {
               AS
             </span>
             <span>
-              <span className="block text-sm font-semibold tracking-wide text-[var(--color-text-primary)]">
+              <span className="block font-heading text-sm font-semibold tracking-[-0.02em] text-[var(--color-text-primary)]">
                 {siteConfig.name}
               </span>
-              <span className="block text-xs text-[var(--color-text-secondary)]">
+              <span className="block font-mono text-[11px] text-[var(--color-text-secondary)]">
                 {siteConfig.owner}
               </span>
             </span>
@@ -42,7 +42,7 @@ export function PageShell({ children }: PageShellProps) {
                   key={item.href}
                   to={item.href}
                   className={cn(
-                    "relative inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-gold)]",
+                    "relative inline-flex items-center gap-2 rounded-full px-3.5 py-2 font-mono text-[13px] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-gold)]",
                     isActive ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]",
                   )}
                 >

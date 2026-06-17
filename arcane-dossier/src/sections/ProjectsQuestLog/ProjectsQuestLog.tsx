@@ -54,10 +54,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </div>
 
         <div className="flex-1">
-          <p className="text-xs uppercase tracking-[0.22em] text-[var(--color-text-secondary)]">
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text-secondary)]">
             Dossier {String(index + 1).padStart(2, "0")} · {project.year}
           </p>
-          <h3 className="mt-2 text-2xl font-semibold tracking-[-0.035em] text-[var(--color-text-primary)] transition group-hover:text-[var(--color-accent-gold)]">
+          <h3 className="mt-2 text-2xl font-semibold text-[var(--color-text-primary)] transition group-hover:text-[var(--color-accent-gold)]">
             {project.title}
           </h3>
           <p className="mt-1 text-sm text-[var(--color-accent-blue)]">{project.subtitle}</p>
@@ -97,12 +97,12 @@ export function ProjectsQuestLog({
   }, [activeFilter, limit]);
 
   return (
-    <SectionShell id="projects" eyebrow="Quest log" title={title} description={description}>
+    <SectionShell id="projects" eyebrow="Quest log" title={title} description={description} className="max-w-[1460px]">
 
       {showFilters ? <ProjectOrbit projects={projects} activeFilter={activeFilter} /> : null}
 
       {showFilters ? (
-        <div className="mb-8 flex flex-wrap gap-2 rounded-3xl border border-[var(--color-border)] bg-white/[0.025] p-2">
+        <div className="mb-8 flex flex-wrap gap-2 rounded-3xl border border-[var(--color-border)] bg-white/[0.025] p-2 backdrop-blur-xl">
           {filterOptions.map((option) => {
             const active = activeFilter === option.value;
             return (
@@ -139,7 +139,7 @@ export function ProjectsQuestLog({
           animate="visible"
           exit="exit"
         >
-          <motion.div className="grid gap-5 md:grid-cols-2" variants={staggerContainerVariants} initial="hidden" animate="visible">
+          <motion.div className="grid gap-5 md:grid-cols-2 xl:grid-cols-2" variants={staggerContainerVariants} initial="hidden" animate="visible">
             {visibleProjects.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
             ))}

@@ -21,7 +21,7 @@ export function Button({ children, className, variant = "primary", ...props }: B
   return (
     <button
       className={cn(
-        "interactive-lift shimmer-button inline-flex items-center justify-center gap-2 rounded-full border px-5 py-2.5 text-sm font-medium transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-gold)] active:translate-y-0",
+        "interactive-lift shimmer-button inline-flex items-center justify-center gap-2 rounded-full border px-5 py-2.5 font-mono text-[13px] font-semibold transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-gold)] active:translate-y-0",
         variants[variant],
         className,
       )}

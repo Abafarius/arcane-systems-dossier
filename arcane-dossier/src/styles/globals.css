@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Cormorant+Garamond:wght@600;700&display=swap");
 @import "./tokens.css";
 @import "./themes.css";
 @import "tailwindcss";
@@ -34,7 +35,12 @@ body {
     radial-gradient(circle at top right, rgba(216, 168, 79, 0.12), transparent 28rem),
     var(--color-background);
   font-family: var(--font-body);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
 
 #root {
   min-height: 100vh;
@@ -61,6 +67,17 @@ h2,
 h3,
 .font-heading {
   font-family: var(--font-heading);
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+h2,
+h3 {
+  font-weight: 650;
 }
 
 .font-mono,
@@ -295,6 +312,36 @@ a {
 @keyframes sweep {
   from { transform: rotate(22deg) translateX(-120%); }
   to { transform: rotate(22deg) translateX(520%); }
+}
+
+
+.kicker-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.arcane-label {
+  font-family: var(--font-accent);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.interactive-surface {
+  will-change: transform, box-shadow, border-color;
+}
+
+.interactive-surface::selection {
+  background: rgba(216, 168, 79, 0.28);
+}
+
+@media (max-width: 768px) {
+  .page-atmosphere::after {
+    opacity: 0.16;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

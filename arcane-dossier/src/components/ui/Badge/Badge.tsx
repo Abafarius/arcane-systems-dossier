@@ -20,7 +20,7 @@ export function Badge({ children, className, tone = "neutral", ...props }: Badge
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-medium leading-none transition duration-300 hover:border-[rgba(216,168,79,0.42)] hover:bg-white/[0.07]",
+        "inline-flex items-center rounded-full border px-2.5 py-1 font-mono text-[11px] font-medium leading-none transition duration-300 hover:border-[rgba(216,168,79,0.42)] hover:bg-white/[0.07]",
         tones[tone],
         className,
       )}

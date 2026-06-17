@@ -41,7 +41,7 @@ function HeroVisual() {
       type="button"
       aria-pressed={expanded}
       onClick={() => setExpanded((current) => !current)}
-      className="group relative min-h-[460px] w-full overflow-hidden rounded-[2rem] text-left border border-white/[0.11] bg-[linear-gradient(145deg,rgba(19,22,38,0.88),rgba(8,9,20,0.96))] shadow-[0_30px_100px_rgba(0,0,0,0.45)] transition duration-500 hover:border-[rgba(216,168,79,0.35)] hover:shadow-[0_34px_120px_rgba(143,108,255,0.18)] sm:min-h-[520px]">
+      className="group relative min-h-[460px] w-full overflow-hidden rounded-[2rem] border border-white/[0.11] text-left bg-[linear-gradient(145deg,rgba(19,22,38,0.88),rgba(8,9,20,0.96))] shadow-[0_30px_100px_rgba(0,0,0,0.45)] transition duration-500 hover:border-[rgba(216,168,79,0.35)] hover:shadow-[0_34px_120px_rgba(143,108,255,0.18)] sm:min-h-[520px]">
       <div className="pointer-events-none absolute -inset-32 opacity-0 blur-3xl transition duration-700 group-hover:opacity-100">
         <div className="h-full w-full animate-[spin_18s_linear_infinite] bg-[conic-gradient(from_120deg,transparent,rgba(216,168,79,0.16),transparent,rgba(143,108,255,0.18),transparent)]" />
       </div>
@@ -54,18 +54,24 @@ function HeroVisual() {
       <div className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(255,255,255,0.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.7)_1px,transparent_1px)] [background-size:42px_42px]" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,transparent_0%,rgba(255,255,255,0.04)_42%,transparent_52%)]" />
 
-      <div className="pointer-events-none absolute inset-0 z-10">
-        {["RAG", "LLM", "FINTECH", "DATA", "FRONTEND", "SYSTEMS"].map((label, index) => (
+      <div className="pointer-events-none absolute inset-0 z-10 hidden sm:block">
+        {[
+          { label: "RAG", left: "11%", top: "24%" },
+          { label: "LLM", left: "72%", top: "24%" },
+          { label: "FINTECH", left: "78%", top: "58%" },
+          { label: "DATA", left: "17%", top: "63%" },
+          { label: "SYSTEMS", left: "42%", top: "33%" },
+        ].map((item, index) => (
           <span
-            key={label}
-            className="absolute rounded-full border border-white/[0.10] bg-black/[0.20] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--color-text-secondary)] shadow-[0_0_28px_rgba(143,108,255,0.10)] backdrop-blur-md transition duration-500 group-hover:text-[var(--color-accent-gold)]"
+            key={item.label}
+            className="kicker-label absolute rounded-full border border-white/[0.10] bg-black/[0.24] px-3 py-1 text-[9px] text-[var(--color-text-secondary)] shadow-[0_0_26px_rgba(143,108,255,0.10)] backdrop-blur-md transition duration-500 group-hover:text-[var(--color-accent-gold)]"
             style={{
-              left: `${12 + ((index * 17) % 68)}%`,
-              top: `${24 + ((index * 29) % 48)}%`,
-              transform: `translateY(${expanded ? -6 + index : 0}px)`,
+              left: item.left,
+              top: item.top,
+              transform: `translateY(${expanded ? -3 + index * 0.5 : 0}px)`,
             }}
           >
-            {label}
+            {item.label}
           </span>
         ))}
       </div>
@@ -73,11 +79,11 @@ function HeroVisual() {
       <div className="relative z-20 flex min-h-[460px] flex-col justify-between p-5 sm:min-h-[520px] sm:p-7">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-accent-gold)]">
+            <p className="kicker-label text-[var(--color-accent-gold)]">
               Arcane Archive Core
             </p>
             <p className="mt-2 max-w-sm text-xs leading-5 text-[var(--color-text-secondary)]">
-              Click the archive core to expand the knowledge engine. Static content stays readable while the visual layer reacts.
+              Click to unfold the archive core. The visual layer reacts, while the dossier content stays readable and static-first.
             </p>
           </div>
           <div className="rounded-full border border-[rgba(110,231,168,0.28)] bg-[rgba(110,231,168,0.09)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-success)] shadow-[0_0_24px_rgba(110,231,168,0.12)]">
@@ -89,7 +95,7 @@ function HeroVisual() {
           <div className="grid gap-2 sm:grid-cols-2">
             {systemPills.map((pill) => (
               <div key={pill.label} className="rounded-xl border border-white/[0.08] bg-white/[0.045] px-3 py-2">
-                <p className="text-[10px] uppercase tracking-[0.22em] text-[var(--color-text-secondary)]">{pill.label}</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-text-secondary)]">{pill.label}</p>
                 <p className="mt-1 text-sm font-semibold text-[var(--color-text-primary)]">{pill.value}</p>
               </div>
             ))}
@@ -99,7 +105,7 @@ function HeroVisual() {
         <div className="grid gap-3 sm:grid-cols-3">
           {telemetry.map((item) => (
             <div key={item.label} className="rounded-2xl border border-white/[0.08] bg-[rgba(7,8,18,0.58)] px-4 py-3 backdrop-blur-md">
-              <p className="text-[10px] uppercase tracking-[0.24em] text-[var(--color-accent-gold)]">{item.label}</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-accent-gold)]">{item.label}</p>
               <p className="mt-1 text-sm text-[var(--color-text-primary)]">{item.value}</p>
             </div>
           ))}
@@ -121,7 +127,7 @@ export function HeroSection() {
           {siteConfig.tagline}
         </div>
 
-        <h1 className="max-w-4xl text-5xl font-semibold leading-[0.92] tracking-[-0.075em] text-[var(--color-text-primary)] md:text-7xl lg:text-8xl">
+        <h1 className="max-w-4xl font-heading text-5xl font-bold leading-[0.9] tracking-[-0.085em] text-[var(--color-text-primary)] md:text-7xl lg:text-8xl">
           {siteConfig.owner}
         </h1>
 
@@ -129,7 +135,7 @@ export function HeroSection() {
           {siteConfig.roles.map((role) => (
             <span
               key={role}
-              className="rounded-full border border-white/[0.11] bg-white/[0.045] px-3 py-1.5 text-sm text-[var(--color-text-secondary)] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-sm"
+              className="rounded-full border border-white/[0.11] bg-white/[0.045] px-3 py-1.5 font-mono text-[12px] text-[var(--color-text-secondary)] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-sm"
             >
               {role}
             </span>

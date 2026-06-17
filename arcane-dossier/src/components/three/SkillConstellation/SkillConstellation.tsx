@@ -42,7 +42,7 @@ const nodes = skills.slice(0, 18).map((skill, index) => {
 
 export function SkillConstellation({ activeCategory, selectedSkillId, onSelectSkill }: SkillConstellationProps) {
   return (
-    <div className="relative min-h-[280px] overflow-hidden rounded-3xl border border-[var(--color-border)] bg-[radial-gradient(circle_at_50%_35%,rgba(143,108,255,0.14),transparent_17rem),rgba(255,255,255,0.025)] p-4">
+    <div className="relative min-h-[260px] overflow-hidden rounded-[1.35rem] border border-[var(--color-border)] bg-[radial-gradient(circle_at_50%_35%,rgba(143,108,255,0.14),transparent_17rem),rgba(255,255,255,0.025)] p-4">
       <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:34px_34px]" />
       <svg aria-hidden className="absolute inset-0 h-full w-full">
         {nodes.map((node, index) => {
@@ -109,10 +109,10 @@ export function SkillConstellation({ activeCategory, selectedSkillId, onSelectSk
         );
       })}
 
-      <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4">
+      <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4 rounded-2xl border border-white/[0.06] bg-black/25 px-3 py-2 backdrop-blur-sm">
         <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-gold)]">Skill constellation</p>
-          <p className="mt-1 max-w-xs text-xs leading-5 text-[var(--color-text-secondary)]">Nodes are connected to domains and project proof.</p>
+          <p className="kicker-label text-[9px] text-[var(--color-accent-gold)]">Skill constellation</p>
+          <p className="mt-1 max-w-[12rem] text-[11px] leading-5 text-[var(--color-text-secondary)]">Nodes map capability domains to proof.</p>
         </div>
         <p className="font-mono text-[10px] text-[var(--color-text-secondary)]">{activeCategory === "all" ? "ALL" : activeCategory.toUpperCase()}</p>
       </div>
